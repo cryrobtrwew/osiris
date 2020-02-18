@@ -85,9 +85,6 @@ public class AutoCrystal extends Module {
     Setting noGappleSwitch;
     Setting renderMode;
 
-    ArrayList<String> renderModes;
-
-
     public boolean isActive = false;
 
 
@@ -137,7 +134,7 @@ public class AutoCrystal extends Module {
         espA = new Setting("caEspAlpha", this, 50, 0, 255, true);
         OsirisMod.getInstance().settingsManager.rSetting(espA);
 
-        renderModes = new ArrayList<>();
+        ArrayList<String> renderModes = new ArrayList<>();
         renderModes.add("Box");
         renderModes.add("HalfBox");
         renderModes.add("Plane");
@@ -339,7 +336,7 @@ public class AutoCrystal extends Module {
             if(rainbow.getValBoolean()) {
                 drawCurrentBlock(render, c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
             } else {
-                drawCurrentBlock(render, (int) espR.getValDouble(), (int) espG.getValDouble(), (int) espB.getValDouble(), (int) espA.getValDouble());
+                drawCurrentBlock(render, espR.getValInt(), espG.getValInt(), espB.getValInt(), espA.getValInt());
             }
             OsirisTessellator.release();
         }
@@ -350,13 +347,12 @@ public class AutoCrystal extends Module {
     }
 
     private void drawCurrentBlock(BlockPos render, int r, int g, int b, int a) {
-        if(renderMode.getValString().equalsIgnoreCase("box")) {
-            OsirisTessellator.drawBox(render, r, g, b, a, GeometryMasks.Quad.ALL);
-        } else if(renderMode.getValString().equalsIgnoreCase("halfbox")) {
+        if(renderMode.getValString().equalsIgnoreCase("halfbox"))
             OsirisTessellator.drawHalfBox(render, r, g, b, a,  GeometryMasks.Quad.ALL);
-        } else if(renderMode.getValString().equalsIgnoreCase("plane")) {
+        else if(renderMode.getValString().equalsIgnoreCase("plane"))
             OsirisTessellator.drawBox(render, r, g, b, a, GeometryMasks.Quad.DOWN);
-        }
+         else
+            OsirisTessellator.drawBox(render, r, g, b, a, GeometryMasks.Quad.ALL);
     }
 
 
