@@ -30,11 +30,8 @@ public class PlayerComponent extends Panel {
 
 
     public void drawHud(){
-        //mouseXX = mc.getRenderManager().playerViewY * -1;
-        //mouseYY = mc.getRenderManager().playerViewX * -1;
         mouseXX = mc.getRenderViewEntity().rotationYaw * -1;
         mouseYY = mc.getRenderViewEntity().rotationPitch * -1;
-        //TODO: fix
         GlStateManager.color(1, 1, 1, 1);
         drawEntityOnScreen((int)x + 21, (int)y + 60, 30, mouseXX, mouseYY, mc.player);
     }
