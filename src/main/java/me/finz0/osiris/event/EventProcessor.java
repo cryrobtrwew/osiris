@@ -94,7 +94,7 @@ public class EventProcessor {
             ModuleManager.onRender();
             //HudCompnent stuff
             for(Panel p : HudComponentManager.hudComponents){
-                if(p.isHudComponent && p.isHudComponentPinned && p.extended && p.visible && !(mc.currentScreen instanceof ClickGUI))
+                if(p.isHudComponent && p.isHudComponentPinned && p.visible && !(mc.currentScreen instanceof ClickGUI))
                     p.drawHud();
             }
         }
