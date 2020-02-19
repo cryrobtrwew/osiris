@@ -30,9 +30,10 @@ public class LogoutSpots extends Module {
 
     @EventHandler
     private Listener<PlayerJoinEvent> listener1 = new Listener<>(event -> {
-        if(mc.world.getPlayerEntityByName(event.getName()) != null && loggedPlayers.containsKey(mc.world.getPlayerEntityByName(event.getName())))
+        if(mc.world.getPlayerEntityByName(event.getName()) != null && loggedPlayers.containsKey(mc.world.getPlayerEntityByName(event.getName()))) {
             Command.sendClientMessage(event.getName() + " reconnected!");
-        loggedPlayers.remove(mc.world.getPlayerEntityByName(event.getName()));
+            loggedPlayers.remove(mc.world.getPlayerEntityByName(event.getName()));
+        }
     });
 
     @EventHandler
