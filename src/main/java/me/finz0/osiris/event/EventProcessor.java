@@ -92,7 +92,7 @@ public class EventProcessor {
         if(event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR) {
             //module onRender
             ModuleManager.onRender();
-            //HudCompnent stuff
+            //HudComponent stuff
             for(Panel p : HudComponentManager.hudComponents){
                 if(p.isHudComponent && p.isHudComponentPinned && p.visible && !(mc.currentScreen instanceof ClickGUI))
                     p.drawHud();
