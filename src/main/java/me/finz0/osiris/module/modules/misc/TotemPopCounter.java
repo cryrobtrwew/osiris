@@ -8,6 +8,7 @@ import me.finz0.osiris.module.Module;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.play.server.SPacketEntityStatus;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,6 +27,7 @@ public class TotemPopCounter extends Module {
             SPacketEntityStatus packet = (SPacketEntityStatus) event.getPacket();
             if(packet.getOpCode() == 35) {
                 Entity entity = packet.getEntity(mc.world);
+                if(!(entity instanceof EntityPlayer)) return;
                 if(players.containsKey(entity)){
                     players.forEach((ent, count) -> {
                         if(!entity.isDead) {
@@ -49,7 +51,7 @@ public class TotemPopCounter extends Module {
     public void onUpdate(){
         try {
             players.forEach((e, count) -> {
-                if (e.isDead) {
+                if (e.isDead || ((EntityPlayer)e).getHealth() <= 0) {
                     players.remove(e, count);
                     Command.sendClientMessage(ChatFormatting.RED + e.getName() + ChatFormatting.RESET + " just died after popping " + ChatFormatting.RED + count + ChatFormatting.RESET + " totems!");
                 }
