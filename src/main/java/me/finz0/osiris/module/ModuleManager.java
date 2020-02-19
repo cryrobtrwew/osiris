@@ -16,6 +16,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ModuleManager {
     public static ArrayList<Module> modules;
@@ -93,6 +94,7 @@ public class ModuleManager {
         addMod(new HitboxESP());
         addMod(new FovModule());
         addMod(new BoxESP());
+        addMod(new TabGui());
         //GUI
         addMod(new ModList());
         addMod(new ClickGuiModule());
@@ -170,6 +172,11 @@ public class ModuleManager {
 
     public static ArrayList<Module> getModules() {
         return modules;
+    }
+
+    public static ArrayList<Module> getModulesInCategory(Module.Category c){
+        ArrayList<Module> list = (ArrayList<Module>) getModules().stream().filter(m -> m.getCategory().equals(c)).collect(Collectors.toList());
+        return list;
     }
 
     public static void onBind(int key) {

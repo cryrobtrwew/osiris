@@ -11,6 +11,7 @@ import me.finz0.osiris.event.events.PacketEvent;
 import me.finz0.osiris.event.events.PlayerJoinEvent;
 import me.finz0.osiris.event.events.PlayerLeaveEvent;
 import me.finz0.osiris.module.ModuleManager;
+import me.finz0.osiris.module.modules.render.TabGui;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.Minecraft;
@@ -108,6 +109,19 @@ public class EventProcessor {
                 if(m.getKey() == Keyboard.getEventKey())
                     m.onMacro();
             });
+            if(Keyboard.getEventKey() == Keyboard.KEY_UP) {
+                if(!TabGui.extended) TabGui.selected--;
+                else TabGui.selectedMod--;
+            }
+            if(Keyboard.getEventKey() == Keyboard.KEY_DOWN) {
+                if(!TabGui.extended) TabGui.selected++;
+                else TabGui.selectedMod++;
+            }
+            if(Keyboard.getEventKey() == Keyboard.KEY_RIGHT){
+                if(!TabGui.extended) TabGui.extended = true;
+                else if (TabGui.currentMod != null) TabGui.currentMod.toggle();
+            }
+            if(Keyboard.getEventKey() == Keyboard.KEY_LEFT) TabGui.extended = false;
         }
     }
 

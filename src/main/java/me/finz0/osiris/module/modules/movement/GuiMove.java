@@ -11,17 +11,17 @@ public class GuiMove extends Module {
 
     public void onUpdate(){
         if(mc.currentScreen != null && !(mc.currentScreen instanceof GuiChat)) {
-            if (Keyboard.isKeyDown(Integer.valueOf(200).intValue())) {
+            if (Keyboard.isKeyDown(200)) {
                 mc.player.rotationPitch -= 5;
 
             }
-            if (Keyboard.isKeyDown(Integer.valueOf(208).intValue())) {
+            if (Keyboard.isKeyDown(208)) {
                 mc.player.rotationPitch += 5;
             }
-            if (Keyboard.isKeyDown(Integer.valueOf(205).intValue())) {
+            if (Keyboard.isKeyDown(205)) {
                 mc.player.rotationYaw += 5;
             }
-            if (Keyboard.isKeyDown(Integer.valueOf(203).intValue())) {
+            if (Keyboard.isKeyDown(203)) {
                 mc.player.rotationYaw -= 5;
             }
             if (mc.player.rotationPitch > 90) mc.player.rotationPitch = 90;
