@@ -231,7 +231,7 @@ public class EventProcessor {
 
         final String url = "https://api.mojang.com/user/profiles/" + uuid + "/names";
         try {
-            final String nameJson = (new URL(url)).toString();
+            final String nameJson = IOUtils.toString(new URL(url));
             if (nameJson != null && nameJson.length() > 0) {
                 final JSONArray jsonArray = (JSONArray) JSONValue.parseWithException(nameJson);
                 if (jsonArray != null) {

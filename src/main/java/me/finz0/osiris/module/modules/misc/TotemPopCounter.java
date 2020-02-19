@@ -51,7 +51,7 @@ public class TotemPopCounter extends Module {
     public void onUpdate(){
         try {
             players.forEach((e, count) -> {
-                if (e.isDead || ((EntityPlayer)e).getHealth() <= 0) {
+                if (mc.world.loadedEntityList.contains(e) && (e.isDead || ((EntityPlayer)e).getHealth() <= 0)) {
                     players.remove(e, count);
                     Command.sendClientMessage(ChatFormatting.RED + e.getName() + ChatFormatting.RESET + " just died after popping " + ChatFormatting.RED + count + ChatFormatting.RESET + " totems!");
                 }
