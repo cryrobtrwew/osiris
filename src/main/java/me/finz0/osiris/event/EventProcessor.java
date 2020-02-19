@@ -191,7 +191,6 @@ public class EventProcessor {
     @EventHandler
     private Listener<PacketEvent.Receive> receiveListener = new Listener<>(event -> {
         if (event.getPacket() instanceof SPacketPlayerListItem) {
-            try {
                 SPacketPlayerListItem packet = (SPacketPlayerListItem) event.getPacket();
                 if (packet.getAction() == SPacketPlayerListItem.Action.ADD_PLAYER) {
                     for (SPacketPlayerListItem.AddPlayerData playerData : packet.getEntries()) {
@@ -219,7 +218,6 @@ public class EventProcessor {
                         }
                     }
                 }
-            } catch(Exception e){e.printStackTrace();}
         }
     });
 
