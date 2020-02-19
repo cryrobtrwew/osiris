@@ -136,14 +136,14 @@ public class HoleESP extends Module {
             return;
         }
 
-        if(!mode.getValString().equalsIgnoreCase("outline"))
+        if(mode.getValString().equalsIgnoreCase("box"))
             OsirisTessellator.prepare(GL11.GL_QUADS);
 
         safeHoles.forEach((blockPos, isBedrock) -> {
             drawBox(blockPos, (int)r.getValDouble(), (int)g.getValDouble(), (int)b.getValDouble());
         });
 
-        if(!mode.getValString().equalsIgnoreCase("outline"))
+        if(mode.getValString().equalsIgnoreCase("box"))
             OsirisTessellator.release();
 
     }
