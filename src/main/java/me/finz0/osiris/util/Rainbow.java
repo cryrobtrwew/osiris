@@ -12,4 +12,12 @@ public class Rainbow {
     public static Color getColor(){
         return EventProcessor.INSTANCE.getC();
     }
+
+    public static Color getColorWithOpacity(int opacity){
+        return new Color(getColor().getRed(), getColor().getGreen(), getColor().getBlue(), opacity);
+    }
+
+    public static int getIntWithOpacity(int opacity){
+        return getColorWithOpacity(opacity).getRGB();
+    }
 }
