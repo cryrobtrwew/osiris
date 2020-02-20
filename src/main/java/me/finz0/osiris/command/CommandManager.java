@@ -31,6 +31,7 @@ public class CommandManager {
         addCommand(new LoadAnnouncerCommand());
         addCommand(new WaypointCommand());
         addCommand(new FontCommand());
+        addCommand(new EnemyCommand());
     }
 
     public static void addCommand(Command c){
