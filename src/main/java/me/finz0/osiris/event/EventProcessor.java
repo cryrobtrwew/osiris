@@ -109,6 +109,7 @@ public class EventProcessor {
                 if(m.getKey() == Keyboard.getEventKey())
                     m.onMacro();
             });
+            //TabGUI
             if(Keyboard.getEventKey() == Keyboard.KEY_UP) {
                 if(!TabGui.extended) TabGui.selected--;
                 else TabGui.selectedMod--;
