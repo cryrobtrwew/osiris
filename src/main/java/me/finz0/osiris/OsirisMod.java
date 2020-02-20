@@ -1,6 +1,7 @@
 package me.finz0.osiris;
 
 import de.Hero.clickgui.ClickGUI;
+import me.finz0.osiris.enemy.Enemies;
 import me.finz0.osiris.hud.HudComponentManager;
 import de.Hero.settings.SettingsManager;
 import me.finz0.osiris.command.CommandManager;
@@ -42,6 +43,7 @@ public class OsirisMod {
     EventProcessor eventProcessor;
     public WaypointManager waypointManager;
     public static CFontRenderer fontRenderer;
+    public static Enemies enemies;
 
     public static final EventBus EVENT_BUS = new EventManager();
 
@@ -69,7 +71,8 @@ public class OsirisMod {
         log.info("Settings initialized!");
 
         friends = new Friends();
-        log.info("Friends initialized!");
+        enemies = new Enemies();
+        log.info("Friends and enemies initialized!");
 
         moduleManager = new ModuleManager();
         log.info("Modules initialized!");
@@ -79,17 +82,17 @@ public class OsirisMod {
         log.info("ClickGUI initialized!");
 
         macroManager = new MacroManager();
-        log.info("Macros initialised!");
+        log.info("Macros initialized!");
 
         configUtils = new ConfigUtils();
         Runtime.getRuntime().addShutdownHook(new ShutDownHookerino());
         log.info("Config loaded!");
 
         CommandManager.initCommands();
-        log.info("Commands initialised!");
+        log.info("Commands initialized!");
 
         waypointManager = new WaypointManager();
-        log.info("Waypoints initialised!");
+        log.info("Waypoints initialized!");
 
         log.info("Initialization complete!\n");
     }

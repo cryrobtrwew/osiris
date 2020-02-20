@@ -1,5 +1,6 @@
 package me.finz0.osiris.mixin.mixins;
 
+import me.finz0.osiris.enemy.Enemies;
 import me.finz0.osiris.friends.Friends;
 import net.minecraft.client.gui.GuiPlayerTabOverlay;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -24,7 +25,8 @@ public class MixinGuiPlayerTabOverlay {
     public String getPlayerName(NetworkPlayerInfo networkPlayerInfoIn) {
         String dname = networkPlayerInfoIn.getDisplayName() != null ? networkPlayerInfoIn.getDisplayName().getFormattedText() : ScorePlayerTeam.formatPlayerName(networkPlayerInfoIn.getPlayerTeam(), networkPlayerInfoIn.getGameProfile().getName());
         if (Friends.isFriend(dname)) return TextFormatting.AQUA + dname;
-        return dname;
+        else if (Enemies.isEnemy(dname)) return TextFormatting.RED + dname;
+        else return dname;
     }
 
 }

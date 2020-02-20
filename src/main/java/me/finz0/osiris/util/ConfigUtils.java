@@ -3,6 +3,8 @@ package me.finz0.osiris.util;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import de.Hero.clickgui.ClickGUI;
 import de.Hero.clickgui.Panel;
+import me.finz0.osiris.enemy.Enemies;
+import me.finz0.osiris.enemy.Enemy;
 import me.finz0.osiris.hud.HudComponentManager;
 import de.Hero.settings.Setting;
 import me.finz0.osiris.OsirisMod;
@@ -66,6 +68,7 @@ public class ConfigUtils {
         loadWaypoints();
         loadHudComponents();
         loadFont();
+        loadEnemies();
     }
 
     public void saveBinds() {
@@ -348,9 +351,46 @@ public class ConfigUtils {
             br.close();
         } catch (Exception var6) {
             var6.printStackTrace();
-            saveMods();
+            saveFriends();
         }
 
+    }
+
+    public void saveEnemies() {
+        try {
+            File file = new File(this.Osiris.getAbsolutePath(), "Enemies.txt");
+            BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            Iterator var3 = Enemies.getEnemies().iterator();
+
+            while(var3.hasNext()) {
+                Enemy e = (Enemy)var3.next();
+                out.write(e.getName());
+                out.write("\r\n");
+            }
+
+            out.close();
+        } catch (Exception var5) {
+        }
+    }
+
+    public void loadEnemies() {
+        try {
+            File file = new File(this.Osiris.getAbsolutePath(), "Enemies.txt");
+            FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            Enemies.enemies.clear();
+            String line;
+            while((line = br.readLine()) != null) {
+                Enemies.addEnemy(line);
+            }
+
+            br.close();
+        } catch (Exception var6) {
+            var6.printStackTrace();
+            saveEnemies();
+        }
     }
 
     public void saveGui() {
