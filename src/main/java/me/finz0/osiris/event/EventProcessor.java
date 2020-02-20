@@ -104,7 +104,9 @@ public class EventProcessor {
     @SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Keyboard.getEventKeyState()) {
+            //Module binds
             ModuleManager.onBind(Keyboard.getEventKey());
+            //Macro
             OsirisMod.getInstance().macroManager.getMacros().forEach(m -> {
                 if(m.getKey() == Keyboard.getEventKey())
                     m.onMacro();
