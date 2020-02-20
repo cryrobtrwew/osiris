@@ -3,3 +3,4 @@
 -added CFont setting to PotionEffects
 -added TotemPopCounter
 -added TabGUI
+-added `-enemy <add | del> <name>`, enemies will show in red in tab list
