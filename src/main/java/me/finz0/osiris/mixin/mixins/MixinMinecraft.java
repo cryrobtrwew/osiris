@@ -17,7 +17,6 @@ public class MixinMinecraft {
         try {
             GuiScreenDisplayedEvent screenEvent = new GuiScreenDisplayedEvent(guiScreenIn);
             OsirisMod.EVENT_BUS.post(screenEvent);
-            guiScreenIn = screenEvent.getScreen();
         } catch (Exception e){}
     }
 }

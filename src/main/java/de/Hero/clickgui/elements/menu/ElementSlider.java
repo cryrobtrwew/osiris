@@ -63,7 +63,7 @@ public class ElementSlider extends Element {
 		
 		if(percentBar > 0 && percentBar < 1)
 		Gui.drawRect((int)x + ((int)percentBar * (int)width)-1, (int)y + 12, (int)x + Math.min(((int)percentBar * (int)width), (int)width), (int)y + (int)13.5, color2);
-		
+
 
 		/*
 		 * Neue Value berechnen, wenn dragging
