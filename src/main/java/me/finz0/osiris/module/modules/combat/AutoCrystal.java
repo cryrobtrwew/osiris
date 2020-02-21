@@ -221,7 +221,6 @@ public class AutoCrystal extends Module {
                 }
             }
         }
-
         boolean offhand = false;
         if (mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL) {
             offhand = true;
