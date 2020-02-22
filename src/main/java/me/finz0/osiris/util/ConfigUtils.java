@@ -844,6 +844,22 @@ public class ConfigUtils {
         } catch (Exception var5) {
         }
 
+        try {
+            file = new File(Settings.getAbsolutePath(), "Color.txt");
+            out = new BufferedWriter(new FileWriter(file));
+            var3 = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettings().iterator();
+
+            while(var3.hasNext()) {
+                i = (Setting)var3.next();
+                if (i.isColorPicker()) {
+                    out.write(i.getName() + ":" + i.getValColor().getRGB() + ":" + i.getParentMod().getName() + "\r\n");
+                }
+            }
+
+            out.close();
+        } catch (Exception var7) {
+        }
+
     }
 
     public void loadSettingsList() {
@@ -857,6 +873,7 @@ public class ConfigUtils {
         String isOn;
         String m;
         Setting mod;
+        int color;
         try {
             file = new File(Settings.getAbsolutePath(), "Number.txt");
             fstream = new FileInputStream(file.getAbsolutePath());
@@ -872,6 +889,31 @@ public class ConfigUtils {
                     if (mm != null && mm.getName().equalsIgnoreCase(m)) {
                         mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
                         mod.setValDouble(Double.parseDouble(isOn));
+                    }
+                }
+            }
+
+            br.close();
+        } catch (Exception var13) {
+            var13.printStackTrace();
+            this.saveSettingsList();
+        }
+
+        try {
+            file = new File(Settings.getAbsolutePath(), "Color.txt");
+            fstream = new FileInputStream(file.getAbsolutePath());
+            in = new DataInputStream(fstream);
+            br = new BufferedReader(new InputStreamReader(in));
+
+            while((line = br.readLine()) != null) {
+                curLine = line.trim();
+                name = curLine.split(":")[0];
+                color = Integer.parseInt(curLine.split(":")[1]);
+                m = curLine.split(":")[2];
+                for(Module mm : OsirisMod.getInstance().moduleManager.getModules()) {
+                    if (mm != null && mm.getName().equalsIgnoreCase(m)) {
+                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
+                        mod.setValColor(new Color(color));
                     }
                 }
             }
