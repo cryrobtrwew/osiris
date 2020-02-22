@@ -1,4 +1,4 @@
--aded Player hud component
+-added Player hud component
 -added CFont setting to Players and made players with strength show in red
 -added CFont setting to PotionEffects
 -added TotemPopCounter
@@ -6,4 +6,4 @@
 -added `-enemy <add | del> <name>`, enemies will show in red in tab list
 -added Inventory hud component
 -fps uses new color picker instead of rgb settings
--added -clientname <name> command, use "__" for spaces (two underscores)
+-added `-clientname <name>` command, use "__" for spaces (two underscores)
