@@ -6,3 +6,4 @@
 -added `-enemy <add | del> <name>`, enemies will show in red in tab list
 -added Inventory hud component
 -fps uses new color picker instead of rgb settings
+-added -clientname <name> command, use "__" for spaces (two underscores)
