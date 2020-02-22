@@ -11,21 +11,11 @@ public class Fps extends Module {
         super("FPS", Category.GUI);
         setDrawn(false);
     }
-
-    public Setting red;
-    public Setting green;
-    public Setting blue;
     public Setting rainbow;
     public Setting customFont;
     public Setting color;
 
     public void setup(){
-        red = new Setting("FpsRed", this, 255, 0, 255, true);
-        green = new Setting("FpsGreen", this, 255, 0, 255, true);
-        blue = new Setting("FpsBlue", this, 255, 0, 255, true);
-        OsirisMod.getInstance().settingsManager.rSetting(red);
-        OsirisMod.getInstance().settingsManager.rSetting(green);
-        OsirisMod.getInstance().settingsManager.rSetting(blue);
         OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("fpsRainbow", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("fpsCFont", this, false));
         rSetting(color = new Setting("fpsColor", this, Color.WHITE));
