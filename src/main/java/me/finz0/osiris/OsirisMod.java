@@ -26,11 +26,12 @@ import org.lwjgl.opengl.Display;
 
 import java.awt.*;
 
-@Mod(modid = OsirisMod.MODID, name = OsirisMod.MODNAME, version = OsirisMod.MODVER, clientSideOnly = true)
+@Mod(modid = OsirisMod.MODID, name = OsirisMod.FORGENAME, version = OsirisMod.MODVER, clientSideOnly = true)
 public class OsirisMod {
     public static final String MODID = "osiris";
-    public static final String MODNAME = "Osiris";
+    public static String MODNAME = "Osiris";
     public static final String MODVER = "1.0";
+    public static final String FORGENAME = "Osiris";
 
     public static final Logger log = LogManager.getLogger(MODNAME);
     public ClickGUI clickGui;

@@ -4,3 +4,5 @@
 -added TotemPopCounter
 -added TabGUI
 -added `-enemy <add | del> <name>`, enemies will show in red in tab list
+-added Inventory hud component
+-fps uses new color picker instead of rgb settings

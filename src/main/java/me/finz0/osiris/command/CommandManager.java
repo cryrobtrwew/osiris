@@ -32,6 +32,7 @@ public class CommandManager {
         addCommand(new WaypointCommand());
         addCommand(new FontCommand());
         addCommand(new EnemyCommand());
+        addCommand(new ClientnameCommand());
     }
 
     public static void addCommand(Command c){
