@@ -95,7 +95,7 @@ public class ElementComboBox extends Element {
 					//Minecraft.getMinecraft().player.playSound("tile.piston.in", 20.0F, 20.0F);
 					
 					if(clickgui != null && clickgui.setmgr != null)
-					clickgui.setmgr.getSettingByName(set.getName()).setValString(slcd.toLowerCase());
+					clickgui.setmgr.getSettingByName(set.getName()).setValString(slcd);
 					return true;
 				}
 				ay += FontUtil.getFontHeight() + 2;

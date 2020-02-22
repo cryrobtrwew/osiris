@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import de.Hero.clickgui.elements.menu.ElementColorPicker;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.Module;
 import net.minecraft.client.Minecraft;
@@ -61,6 +62,8 @@ public class ModuleButton {
 						menuelements.add(new ElementSlider(this, s));
 					} else if (s.isCombo()) {
 						menuelements.add(new ElementComboBox(this, s));
+					} else if(s.isColorPicker()){
+						menuelements.add(new ElementColorPicker(this, s));
 					}
 			}
 

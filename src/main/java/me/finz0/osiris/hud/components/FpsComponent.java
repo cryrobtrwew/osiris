@@ -62,7 +62,8 @@ public class FpsComponent extends Panel {
     }
 
     private void doStuff() {
-        color = new Color(mod.red.getValInt(), mod.green.getValInt(), mod.blue.getValInt());
+        //color = new Color(mod.red.getValInt(), mod.green.getValInt(), mod.blue.getValInt());
+        color = mod.color.getValColor();
         text = mod.rainbow.getValBoolean() ? Rainbow.getColor() : color;
         font = mod.customFont.getValBoolean();
     }

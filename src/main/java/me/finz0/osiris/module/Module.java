@@ -1,13 +1,12 @@
 package me.finz0.osiris.module;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import de.Hero.settings.Setting;
+import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.command.Command;
 import me.finz0.osiris.event.events.RenderEvent;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Module {
     protected static final Minecraft mc = Minecraft.getMinecraft();
@@ -16,7 +15,6 @@ public class Module {
     int bind;
     boolean enabled;
     boolean drawn;
-    String hudInfo;
 
     public Module(String n, Category c) {
         name = n;
@@ -101,10 +99,8 @@ public class Module {
         drawn = d;
     }
 
-    static List<Category> categoryList = new ArrayList<Category>();
-
-    public static List<Category> getCategories(){
-        return categoryList;
+    public void rSetting(Setting setting){
+        OsirisMod.getInstance().settingsManager.rSetting(setting);
     }
 
     public enum Category{

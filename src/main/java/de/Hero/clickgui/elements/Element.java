@@ -25,6 +25,8 @@ public class Element {
 	public String setstrg;
 	
 	public boolean comboextended;
+
+	public boolean pickerExtended;
 	
 	public void setup(){
 		clickgui = parent.parent.clickgui;
@@ -74,6 +76,14 @@ public class Element {
 			if (textx < x) {
 				width += x - textx + 1;
 			}
+		} else if(set.isColorPicker()){
+			setstrg = sname;
+			height = pickerExtended ? 128 : 15;
+			double textx = x + width - FontUtil.getStringWidth(setstrg);
+			if (textx < x) {
+				width += x - textx + 1;
+			}
+			if(pickerExtended) width = 128;
 		}
 	}
 

@@ -13,6 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
@@ -180,7 +181,7 @@ public class ModuleManager {
     }
 
     public static void onBind(int key) {
-        if (key == 0) return;
+        if (key == 0 || key == Keyboard.KEY_NONE) return;
         modules.forEach(module -> {
             if(module.getBind() == key){
                 module.toggle();

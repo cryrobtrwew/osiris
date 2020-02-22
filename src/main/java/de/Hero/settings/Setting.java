@@ -1,5 +1,6 @@
 package de.Hero.settings;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import me.finz0.osiris.module.Module;
@@ -26,7 +27,9 @@ public class Setting {
 	private double min;
 	private double max;
 	private boolean onlyint = false;
-	
+
+
+	private Color color;
 
 	public Setting(String name, Module parent, String sval, ArrayList<String> options){
 		this.name = name;
@@ -51,6 +54,13 @@ public class Setting {
 		this.max = max;
 		this.onlyint = onlyint;
 		this.mode = "Slider";
+	}
+
+	public Setting(String name, Module parent, Color color){
+		this.name = name;
+		this.parent = parent;
+		this.color = color;
+		this.mode = "ColorPicker";
 	}
 	
 	public String getName(){
@@ -115,8 +125,34 @@ public class Setting {
 	public boolean isSlider(){
 		return this.mode.equalsIgnoreCase("Slider");
 	}
+
+	public boolean isColorPicker(){
+		return mode.equalsIgnoreCase("ColorPicker");
+	}
 	
 	public boolean onlyInt(){
 		return this.onlyint;
+	}
+
+	public Color getValColor(){
+		return color;
+	}
+
+	public void setValColor(Color newColor){
+		color = newColor;
+	}
+
+	public int getColorRed(){
+		return color.getRed();
+	}
+	public int getColorGreen(){
+		return color.getGreen();
+	}
+	public int getColorBlue(){
+		return color.getBlue();
+	}
+
+	public int getColorRgb(){
+		return color.getRGB();
 	}
 }
