@@ -14,9 +14,7 @@ public class MixinMinecraft {
 
     @Inject(method = "displayGuiScreen", at = @At("HEAD"), cancellable = true)
     public void displayGuiScreen(GuiScreen guiScreenIn, CallbackInfo info) {
-        try {
             GuiScreenDisplayedEvent screenEvent = new GuiScreenDisplayedEvent(guiScreenIn);
             OsirisMod.EVENT_BUS.post(screenEvent);
-        } catch (Exception e){}
     }
 }
