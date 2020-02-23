@@ -61,12 +61,12 @@ public class ChatSuffix extends Module {
                 .replace("p", "\u1d18")
                 .replace("q", "\u01eb")
                 .replace("r", "\u0280")
-                .replace("s", "\u0073")
+                .replace("s", "\ua731")
                 .replace("t", "\u1d1b")
                 .replace("u", "\u1d1c")
                 .replace("v", "\u1d20")
                 .replace("w", "\u1d21")
-                .replace("x", "\u0078")
+                .replace("x", "\u02e3")
                 .replace("y", "\u028f")
                 .replace("z", "\u1d22");
     }
