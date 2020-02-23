@@ -53,27 +53,31 @@ public class InventoryComponent extends Panel {
     }
 
     public void drawInventory(int x, int y){
-        GlStateManager.disableBlend();
-        GlStateManager.disableDepth();
+        //GlStateManager.disableBlend();
+        GlStateManager.enableAlpha();
+        //GlStateManager.disableDepth();
         mc.renderEngine.bindTexture(resource);
         GlStateManager.color(1, 1, 1, 1);
         mc.ingameGUI.drawTexturedModalRect(x, y, 7, 17, 162, 54);
+        //GlStateManager.enableDepth();
+        GlStateManager.disableAlpha();
+        //GlStateManager.enableBlend();
 
         GlStateManager.clear(GL11.GL_DEPTH_BUFFER_BIT);
         NonNullList<ItemStack> items = Minecraft.getMinecraft().player.inventory.mainInventory;
         for (int size = items.size(), item = 9; item < size; ++item) {
             final int slotX = x + 1 + item % 9 * 18;
             final int slotY = y + 1 + (item / 9 - 1) * 18;
-            GlStateManager.pushMatrix();
-            GlStateManager.enableDepth();
-            GlStateManager.depthMask(true);
+            //GlStateManager.pushMatrix();
+            //GlStateManager.enableDepth();
+            //GlStateManager.depthMask(true);
             RenderHelper.enableGUIStandardItemLighting();
             mc.getRenderItem().renderItemAndEffectIntoGUI(items.get(item), slotX, slotY);
             mc.getRenderItem().renderItemOverlays(mc.fontRenderer, items.get(item), slotX, slotY);
             RenderHelper.disableStandardItemLighting();
-            GlStateManager.depthMask(false);
-            GlStateManager.disableDepth();
-            GlStateManager.popMatrix();
+            //GlStateManager.depthMask(false);
+            //GlStateManager.disableDepth();
+            //GlStateManager.popMatrix();
         }
     }
 }
