@@ -25,5 +25,6 @@ public class ShutDownHookerino extends Thread {
         OsirisMod.getInstance().configUtils.saveHudComponents();
         OsirisMod.getInstance().configUtils.saveFont();
         OsirisMod.getInstance().configUtils.saveEnemies();
+        OsirisMod.getInstance().configUtils.saveClientname();
     }
 }

@@ -69,6 +69,37 @@ public class ConfigUtils {
         loadHudComponents();
         loadFont();
         loadEnemies();
+        loadClientname();
+    }
+
+    public void saveClientname() {
+        try {
+            File file = new File(this.Osiris.getAbsolutePath(), "ClientName.txt");
+            BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            out.write(OsirisMod.MODNAME);
+            //out.write("\r\n");
+            out.close();
+        } catch (Exception var3) {
+        }
+
+    }
+
+    public void loadClientname() {
+        try {
+            File file = new File(this.Osiris.getAbsolutePath(), "ClientName.txt");
+            FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String line;
+            while((line = br.readLine()) != null) {
+                OsirisMod.MODNAME = line;
+            }
+            br.close();
+        } catch (Exception var6) {
+            var6.printStackTrace();
+            saveClientname();
+        }
+
     }
 
     public void saveBinds() {
