@@ -21,6 +21,8 @@ public class Players extends Module {
     Setting y;
     Setting right;
     Setting customFont;
+    Setting distance;
+
     String s = "";
     int count;
     DecimalFormat decimalFormat = new DecimalFormat("00.0");
@@ -34,6 +36,7 @@ public class Players extends Module {
         right = new Setting("pAlignRight", this, false);
         OsirisMod.getInstance().settingsManager.rSetting(right);
         OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("pCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(distance = new Setting("pDistance", this, false));
     }
 
     public void onRender(){
@@ -49,6 +52,7 @@ public class Players extends Module {
                     if((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()) <= 5) s = ChatFormatting.RED +" "+ decimalFormat.format((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()));
                     if((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()) > 5 && (((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()) <=15) s = ChatFormatting.YELLOW +" "+ decimalFormat.format((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()));
                     if((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()) >15) s = ChatFormatting.GREEN +" "+ decimalFormat.format((((EntityPlayer) e).getHealth() + ((EntityPlayer) e).getAbsorptionAmount()));
+                    if(distance.getValBoolean()) s += " " + ChatFormatting.GRAY + (int)mc.player.getDistance(e);
                     if(right.getValBoolean()) {
                             if(font) OsirisMod.fontRenderer.drawStringWithShadow(cf + e.getName() + s, (int) x.getValDouble() - OsirisMod.fontRenderer.getStringWidth(cf + e.getName() + s), (int) y.getValDouble() + count, 0xffffffff);
                             else mc.fontRenderer.drawStringWithShadow(cf + e.getName() + s, (int) x.getValDouble() - mc.fontRenderer.getStringWidth(cf + e.getName() + s), (int) y.getValDouble() + count, 0xffffffff);
