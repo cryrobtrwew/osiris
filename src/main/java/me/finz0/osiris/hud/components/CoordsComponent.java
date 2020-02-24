@@ -12,6 +12,7 @@ import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class CoordsComponent extends Panel {
     public CoordsComponent(double ix, double iy, ClickGUI parent) {
@@ -70,13 +71,19 @@ public class CoordsComponent extends Panel {
     }
 
     private String getCoords(){
+        DecimalFormat decimalFormat = new DecimalFormat(mod.decimal.getValString());
+        String x = decimalFormat.format(mc.player.posX);
+        String y = decimalFormat.format(mc.player.posY);
+        String z = decimalFormat.format(mc.player.posZ);
         String coords;
         if (mc.player.dimension == -1) {
-            coords = mc.player.getPosition().getX() + ", " + mc.player.getPosition().getY() + ", " + mc.player.getPosition().getZ() +
-                    ChatFormatting.GRAY + "[" + ChatFormatting.RESET + mc.player.getPosition().getX() * 8 + ", " + mc.player.getPosition().getZ() * 8 + ChatFormatting.GRAY + "]";
+            String otherX = decimalFormat.format(mc.player.posX * 8);
+            String otherZ = decimalFormat.format(mc.player.posZ * 8);
+            coords = x + ", " + y + ", " + z + ChatFormatting.GRAY + " [" + ChatFormatting.RESET + otherX + ", " + otherZ + ChatFormatting.GRAY + "]";
         } else {
-            coords = mc.player.getPosition().getX() + ", " + mc.player.getPosition().getY() + ", " + mc.player.getPosition().getZ() +
-                    ChatFormatting.GRAY + "[" + ChatFormatting.RESET + mc.player.getPosition().getX() / 8 + ", " + mc.player.getPosition().getZ() / 8 + ChatFormatting.GRAY + "]";
+            String otherX = decimalFormat.format(mc.player.posX / 8);
+            String otherZ = decimalFormat.format(mc.player.posZ / 8);
+            coords = x + ", " + y + ", " + z + ChatFormatting.GRAY + " [" + ChatFormatting.RESET + otherX + ", " + otherZ + ChatFormatting.GRAY + "]";
         }
         return coords;
     }
