@@ -13,13 +13,17 @@ public class Direction extends Module {
         modes.add("XZ");
         modes.add("NSWE");
         rSetting(mode = new Setting("dirMode", this, "XZ", modes));
-        rSetting(color = new Setting("dirColor", this, Color.WHITE));
         rSetting(rainbow = new Setting("dirRainbow", this, false));
         rSetting(customFont = new Setting("dirCFont", this, false));
+        rSetting(color = new Setting("dirColor", this, Color.WHITE));
     }
 
     public Setting color;
     public Setting mode;
     public Setting rainbow;
     public Setting customFont;
+
+    public void onEnable(){
+        disable();
+    }
 }

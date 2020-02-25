@@ -4,7 +4,6 @@ import de.Hero.clickgui.elements.Element;
 import de.Hero.clickgui.elements.ModuleButton;
 import de.Hero.clickgui.util.FontUtil;
 import de.Hero.settings.Setting;
-import me.finz0.osiris.command.Command;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;

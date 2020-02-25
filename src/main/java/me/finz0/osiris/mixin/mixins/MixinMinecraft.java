@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public class MixinMinecraft {
 
-    @Inject(method = "displayGuiScreen", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "displayGuiScreen", at = @At("HEAD"))
     public void displayGuiScreen(GuiScreen guiScreenIn, CallbackInfo info) {
             GuiScreenDisplayedEvent screenEvent = new GuiScreenDisplayedEvent(guiScreenIn);
             OsirisMod.EVENT_BUS.post(screenEvent);
