@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
 
@@ -27,6 +28,7 @@ public class CsgoESP extends Module {
     Setting items;
     Setting xpBottles;
     Setting crystals;
+    Setting orbs;
 
     public void setup(){
         OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("Players", this, true));
@@ -35,6 +37,7 @@ public class CsgoESP extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("Items", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("Crystals", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(xpBottles = new Setting("XpBottles", this, false));
+        rSetting(orbs = new Setting("ceXpOrbs", this, false));
     }
 
     public void onWorldRender(RenderEvent event) {
@@ -256,6 +259,44 @@ public class CsgoESP extends Module {
 
 
                             if(e instanceof EntityEnderCrystal && crystals.getValBoolean()) {
+                                glBegin(GL_LINE_LOOP);
+                                {
+                                    glVertex2d(-e.width / 2, 0);
+                                    glVertex2d(-e.width / 2, e.height / 3);
+                                    glVertex2d(-e.width / 2, 0);
+                                    glVertex2d(((-e.width / 3) * 2) / 2, 0);
+                                }
+                                glEnd();
+
+                                glBegin(GL_LINE_LOOP);
+                                {
+                                    glVertex2d(-e.width / 2, e.height);
+                                    glVertex2d(((-e.width / 3) * 2) / 2, e.height);
+                                    glVertex2d(-e.width / 2, e.height);
+                                    glVertex2d(-e.width / 2, (e.height / 3) * 2);
+                                }
+                                glEnd();
+
+                                glBegin(GL_LINE_LOOP);
+                                {
+                                    glVertex2d(e.width / 2, e.height);
+                                    glVertex2d(((e.width / 3) * 2) / 2, e.height);
+                                    glVertex2d(e.width / 2, e.height);
+                                    glVertex2d(e.width / 2, (e.height / 3) * 2);
+                                }
+                                glEnd();
+
+                                glBegin(GL_LINE_LOOP);
+                                {
+                                    glVertex2d(e.width / 2, 0);
+                                    glVertex2d(((e.width / 3) * 2) / 2, 0);
+                                    glVertex2d(e.width / 2, 0);
+                                    glVertex2d(e.width / 2, e.height / 3);
+                                }
+                                glEnd();
+                            }
+
+                            if(e instanceof EntityXPOrb && orbs.getValBoolean()) {
                                 glBegin(GL_LINE_LOOP);
                                 {
                                     glVertex2d(-e.width / 2, 0);

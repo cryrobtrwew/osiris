@@ -7,10 +7,7 @@ import me.finz0.osiris.friends.Friends;
 import me.finz0.osiris.module.Module;
 import me.finz0.osiris.util.OsirisTessellator;
 import me.finz0.osiris.util.Rainbow;
-import net.minecraft.entity.item.EntityEnderCrystal;
-import net.minecraft.entity.item.EntityEnderPearl;
-import net.minecraft.entity.item.EntityExpBottle;
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.*;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.awt.*;
@@ -22,6 +19,7 @@ public class HitboxESP extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("hiePassive", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(mobs = new Setting("hieMobs", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(exp = new Setting("hieXpBottles", this, false));
+        rSetting(orbs = new Setting("hieXpOrbs", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(epearls = new Setting("hieEpearls", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("hieCrystals", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("hieItems", this, false));
@@ -30,7 +28,6 @@ public class HitboxESP extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(g = new Setting("hieGreen", this, 255, 1, 255, true));
         OsirisMod.getInstance().settingsManager.rSetting(b = new Setting("hieBlue", this, 255, 1, 255, true));
         OsirisMod.getInstance().settingsManager.rSetting(a = new Setting("hieAlpha", this, 50, 1, 255, true));
-
     }
 
     Setting players;
@@ -40,6 +37,7 @@ public class HitboxESP extends Module {
     Setting epearls;
     Setting crystals;
     Setting items;
+    Setting orbs;
 
     Setting rainbow;
     Setting r;
@@ -77,6 +75,9 @@ public class HitboxESP extends Module {
                         OsirisTessellator.drawBoundingBox(e.getRenderBoundingBox(), 1, c.getRGB());
                     }
                     if(items.getValBoolean() && e instanceof EntityItem){
+                        OsirisTessellator.drawBoundingBox(e.getRenderBoundingBox(), 1, c.getRGB());
+                    }
+                    if(orbs.getValBoolean() && e instanceof EntityXPOrb){
                         OsirisTessellator.drawBoundingBox(e.getRenderBoundingBox(), 1, c.getRGB());
                     }
                     OsirisTessellator.releaseGL();

@@ -115,6 +115,7 @@ public class ModuleManager {
         addMod(new Bps());
         addMod(new PotionEffects());
         addMod(new NotificationsHud());
+        addMod(new Direction());
     }
 
     public static void addMod(Module m){

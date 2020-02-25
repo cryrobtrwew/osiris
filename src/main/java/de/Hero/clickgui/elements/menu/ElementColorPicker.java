@@ -86,7 +86,7 @@ public class ElementColorPicker extends Element {
                     final int yy = (int) Math.round((mouseY - (this.y + 15)) * upScale);
                     set.setValColor(getColorAtPixel(xx, yy));
                 } catch(ArrayIndexOutOfBoundsException e){
-                    Command.sendClientMessage(e.toString());
+                    //Command.sendClientMessage(e.toString());
                     return false;
                 }
                 return true;

@@ -25,6 +25,7 @@ public class HudComponentManager {
         addComponent(new CrystalsComponent(ix, iy + 240, parent));
         addComponent(new PlayerComponent(ix, iy + 260, parent));
         addComponent(new InventoryComponent(ix, iy + 280, parent));
+        addComponent(new DirectionComponent(ix, iy + 300, parent));
     }
 
     public static List<Panel> hudComponents;

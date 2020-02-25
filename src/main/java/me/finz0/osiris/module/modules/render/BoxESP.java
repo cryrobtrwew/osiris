@@ -8,10 +8,7 @@ import me.finz0.osiris.module.Module;
 import me.finz0.osiris.util.GeometryMasks;
 import me.finz0.osiris.util.OsirisTessellator;
 import me.finz0.osiris.util.Rainbow;
-import net.minecraft.entity.item.EntityEnderCrystal;
-import net.minecraft.entity.item.EntityEnderPearl;
-import net.minecraft.entity.item.EntityExpBottle;
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.*;
 import net.minecraft.entity.player.EntityPlayer;
 import org.lwjgl.opengl.GL11;
 
@@ -27,6 +24,7 @@ public class BoxESP extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(epearls = new Setting("beEpearls", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("beCrystals", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("beItems", this, false));
+        rSetting(orbs = new Setting("beXpOrbs", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("beRainbow", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(r = new Setting("beRed", this, 255, 1, 255, true));
         OsirisMod.getInstance().settingsManager.rSetting(g = new Setting("beGreen", this, 255, 1, 255, true));
@@ -41,6 +39,7 @@ public class BoxESP extends Module {
     Setting epearls;
     Setting crystals;
     Setting items;
+    Setting orbs;
 
     Setting rainbow;
     Setting r;
@@ -78,6 +77,9 @@ public class BoxESP extends Module {
                         OsirisTessellator.drawBox(e.getRenderBoundingBox(), finalC.getRGB(), GeometryMasks.Quad.ALL);
                     }
                     if(items.getValBoolean() && e instanceof EntityItem){
+                        OsirisTessellator.drawBox(e.getRenderBoundingBox(), finalC.getRGB(), GeometryMasks.Quad.ALL);
+                    }
+                    if(orbs.getValBoolean() && e instanceof EntityXPOrb){
                         OsirisTessellator.drawBox(e.getRenderBoundingBox(), finalC.getRGB(), GeometryMasks.Quad.ALL);
                     }
                     OsirisTessellator.release();
