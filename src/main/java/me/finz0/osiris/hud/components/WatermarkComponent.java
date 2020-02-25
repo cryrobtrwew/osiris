@@ -31,7 +31,8 @@ public class WatermarkComponent extends Panel {
 
     public void drawHud(){
         doStuff();
-        String s = OsirisMod.MODNAME + " " + OsirisMod.MODVER;
+        String s = OsirisMod.MODNAME + " ";
+        if(mod.version.getValBoolean()) s += OsirisMod.MODVER;
         if(font) OsirisMod.fontRenderer.drawStringWithShadow(s, (float)x, (float)y, text.getRGB());
         else mc.fontRenderer.drawStringWithShadow(s, (float)x, (float)y, text.getRGB());
     }
@@ -39,7 +40,8 @@ public class WatermarkComponent extends Panel {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         doStuff();
-        String s = OsirisMod.MODNAME + " " + OsirisMod.MODVER;
+        String s = OsirisMod.MODNAME + " ";
+        if(mod.version.getValBoolean()) s += OsirisMod.MODVER;
         double w = mc.fontRenderer.getStringWidth(s) + 2;
         c = new Color(50, 50, 50, 100);
         if(isHudComponentPinned) c = new Color(ColorUtil.getClickGUIColor().darker().getRed(), ColorUtil.getClickGUIColor().darker().getGreen(), ColorUtil.getClickGUIColor().darker().getBlue(), 100);

@@ -17,6 +17,7 @@ public class Watermark extends Module {
     public Setting blue;
     public Setting rainbow;
     public Setting customFont;
+    public Setting version;
 
     public void setup(){
         red = new Setting("MarkRed", this, 255, 0, 255, true);
@@ -28,6 +29,7 @@ public class Watermark extends Module {
         rainbow = new Setting("MarkRainbow", this, true);
         OsirisMod.getInstance().settingsManager.rSetting(rainbow);
         OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("markCustomFont", this, true));
+        rSetting(version = new Setting("markVersion", this, true));
     }
 
     public void onEnable(){
