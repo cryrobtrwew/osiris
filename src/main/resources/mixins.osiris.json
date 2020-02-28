@@ -17,6 +17,8 @@
     "MixinEntityPlayerSP",
     "MixinMinecraft",
     "MixinGuiPlayerTabOverlay",
-    "MixinGuiMainMenu"
+    "MixinGuiMainMenu",
+    "MixinGuiScreen",
+    "MixinGuiContainer"
   ]
 }

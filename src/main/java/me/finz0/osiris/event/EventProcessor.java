@@ -11,11 +11,23 @@ import me.finz0.osiris.event.events.PacketEvent;
 import me.finz0.osiris.event.events.PlayerJoinEvent;
 import me.finz0.osiris.event.events.PlayerLeaveEvent;
 import me.finz0.osiris.module.ModuleManager;
+import me.finz0.osiris.module.modules.render.ShulkerPreview;
 import me.finz0.osiris.module.modules.render.TabGui;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketPlayerListItem;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -98,6 +110,65 @@ public class EventProcessor {
                 if(p.isHudComponent && p.isHudComponentPinned && p.visible && !(mc.currentScreen instanceof ClickGUI))
                     p.drawHud();
             }
+
+        }
+    }
+
+    @SubscribeEvent
+    public void onGuiRenderScreen(GuiScreenEvent event){
+        //shulker preview
+        if(ShulkerPreview.active || ShulkerPreview.pinned) {
+            NonNullList<ItemStack> nonnulllist = NonNullList.withSize(27, ItemStack.EMPTY);
+            ItemStackHelper.loadAllItems(ShulkerPreview.nbt, nonnulllist);
+
+            GlStateManager.enableBlend();
+            GlStateManager.disableRescaleNormal();
+            RenderHelper.disableStandardItemLighting();
+            GlStateManager.disableLighting();
+            GlStateManager.disableDepth();
+
+            mc.getRenderItem().zLevel = 300.0F;
+
+            int oldX = ShulkerPreview.drawX;
+            int oldY = ShulkerPreview.drawY;
+
+            Gui.drawRect(oldX + 9, oldY - 14, oldX + 173, oldY + 52, 0xaa111111);
+            mc.renderEngine.bindTexture(new ResourceLocation("textures/gui/container/shulker_box.png"));
+            GlStateManager.color(1, 1, 1, 1);
+            mc.ingameGUI.drawTexturedModalRect(oldX + 10, oldY - 4, 7, 17, 162, 54);
+
+            mc.fontRenderer.drawString(ShulkerPreview.itemStack.getDisplayName(), oldX + 12, oldY - 12, 0xffffff);
+
+            GlStateManager.enableBlend();
+            //GlStateManager.enableAlpha();
+            GlStateManager.enableTexture2D();
+            GlStateManager.enableLighting();
+            GlStateManager.enableDepth();
+            RenderHelper.enableGUIStandardItemLighting();
+            for (int i = 0; i < nonnulllist.size(); i++) {
+                int iX = oldX + (i % 9) * 18 + 11;
+                int iY = oldY + (i / 9) * 18 - 11 + 8;
+                ItemStack itemStack = nonnulllist.get(i);
+                mc.getRenderItem().renderItemAndEffectIntoGUI(itemStack, iX, iY);
+                mc.getRenderItem().renderItemOverlayIntoGUI(mc.fontRenderer, itemStack, iX, iY, null);
+                if(ShulkerPreview.pinned){
+                    if(isPointInRegion(iX, iY, 18, 18, ShulkerPreview.mouseX, ShulkerPreview.mouseY)){
+                        FontRenderer font = itemStack.getItem().getFontRenderer(itemStack);
+                        net.minecraftforge.fml.client.config.GuiUtils.preItemToolTip(itemStack);
+                        event.getGui().drawHoveringText(event.getGui().getItemToolTip(itemStack), iX, iY);
+                        net.minecraftforge.fml.client.config.GuiUtils.postItemToolTip();
+                    }
+                }
+            }
+            RenderHelper.disableStandardItemLighting();
+            mc.getRenderItem().zLevel = 0.0F;
+
+            GlStateManager.enableLighting();
+            GlStateManager.enableDepth();
+            RenderHelper.enableStandardItemLighting();
+            GlStateManager.enableRescaleNormal();
+
+            ShulkerPreview.active = false;
         }
     }
 
@@ -269,6 +340,21 @@ public class EventProcessor {
     public void init(){
         OsirisMod.EVENT_BUS.subscribe(this);
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    //from GuiContainer
+    private boolean isMouseOverSlot(Slot slotIn, int mouseX, int mouseY)
+    {
+        return this.isPointInRegion(slotIn.xPos, slotIn.yPos, 16, 16, mouseX, mouseY);
+    }
+
+    protected boolean isPointInRegion(int rectX, int rectY, int rectWidth, int rectHeight, int pointX, int pointY)
+    {
+        int i = ShulkerPreview.guiLeft;
+        int j = ShulkerPreview.guiTop;
+        pointX = pointX - i;
+        pointY = pointY - j;
+        return pointX >= rectX - 1 && pointX < rectX + rectWidth + 1 && pointY >= rectY - 1 && pointY < rectY + rectHeight + 1;
     }
 
 }

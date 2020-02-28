@@ -96,6 +96,7 @@ public class ModuleManager {
         addMod(new FovModule());
         addMod(new BoxESP());
         addMod(new TabGui());
+        addMod(new ShulkerPreview());
         //GUI
         addMod(new ModList());
         addMod(new ClickGuiModule());
@@ -116,6 +117,7 @@ public class ModuleManager {
         addMod(new PotionEffects());
         addMod(new NotificationsHud());
         addMod(new Direction());
+        addMod(new ArmorHUD());
     }
 
     public static void addMod(Module m){
