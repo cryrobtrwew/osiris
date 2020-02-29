@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class KillAura extends Module {
     public KillAura() {
-        super("KillAura", Category.COMBAT);
+        super("KillAura", Category.COMBAT, "Attacks nearby players");
     }
 
     private Setting range;

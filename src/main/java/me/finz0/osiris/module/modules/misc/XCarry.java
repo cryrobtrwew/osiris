@@ -9,7 +9,7 @@ import net.minecraft.network.play.client.*;
 
 public class XCarry extends Module {
     public XCarry() {
-        super("XCarry", Category.MISC);
+        super("XCarry", Category.MISC, "lets you carry items in your crafting slots");
     }
 
     @EventHandler

@@ -11,7 +11,7 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 
 public class ChatSuffix extends Module {
     public ChatSuffix() {
-        super("ChatSuffix", Category.CHAT);
+        super("ChatSuffix", Category.CHAT, "Adds a suffix to your messages");
     }
 
     Setting blue;

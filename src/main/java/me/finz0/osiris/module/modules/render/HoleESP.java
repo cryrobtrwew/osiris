@@ -18,9 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+//TODO: rewrite
 public class HoleESP extends Module {
     public HoleESP() {
-        super("HoleESP", Category.RENDER);
+        super("HoleESP", Category.RENDER, "Shows safe holes");
     }
 
     Setting rangeS;

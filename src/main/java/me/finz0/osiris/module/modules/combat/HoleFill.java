@@ -22,7 +22,7 @@ import java.util.List;
 //wrote this like a long time ago code is bad but it works so whatever
 public class HoleFill extends Module {
     public HoleFill() {
-        super("HoleFill", Category.COMBAT);
+        super("HoleFill", Category.COMBAT, "Fills nearby obby and bedrock holes");
     }
 
     private ArrayList<BlockPos> holes = new ArrayList();
@@ -51,7 +51,7 @@ public class HoleFill extends Module {
     }
 
     public void onUpdate() {
-        holes = new ArrayList();
+        holes = new ArrayList<>();
         if(ec.getValBoolean()){
             if(!whiteList.contains(Blocks.ENDER_CHEST))
                 whiteList.add(Blocks.ENDER_CHEST);

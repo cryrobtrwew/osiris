@@ -4,7 +4,7 @@ import me.finz0.osiris.module.Module;
 
 public class Brightness extends Module {
     public Brightness() {
-        super("Brightness", Category.RENDER);
+        super("Brightness", Category.RENDER, "Lets you see shit when it's dark");
     }
 
     float old;

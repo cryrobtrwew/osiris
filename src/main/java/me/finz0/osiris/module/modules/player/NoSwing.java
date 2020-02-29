@@ -9,7 +9,7 @@ import net.minecraft.network.play.client.CPacketAnimation;
 
 public class NoSwing extends Module {
     public NoSwing() {
-        super("NoSwing", Category.PLAYER);
+        super("NoSwing", Category.PLAYER, "Prevents swinging animation server side");
     }
 
     @EventHandler

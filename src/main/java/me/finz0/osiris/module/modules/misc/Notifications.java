@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Notifications extends Module {
     public Notifications() {
-        super("Notifications", Category.MISC);
+        super("Notifications", Category.MISC, "Desktop notifications");
     }
 
     public static void sendNotification(String message, TrayIcon.MessageType messageType){

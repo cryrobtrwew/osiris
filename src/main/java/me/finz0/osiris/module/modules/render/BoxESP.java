@@ -16,7 +16,7 @@ import java.awt.*;
 
 public class BoxESP extends Module {
     public BoxESP() {
-        super("BoxESP", Category.RENDER);
+        super("BoxESP", Category.RENDER, "Draws a box around entities");
         OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("bePlayers", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("bePassive", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(mobs = new Setting("beMobs", this, false));

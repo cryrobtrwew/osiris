@@ -10,7 +10,7 @@ import net.minecraft.network.play.client.CPacketUseEntity;
 
 public class Criticals extends Module {
     public Criticals() {
-        super("Criticals", Category.COMBAT);
+        super("Criticals", Category.COMBAT, "Increases chance for a critical hit");
     }
 
     public void onEnable(){

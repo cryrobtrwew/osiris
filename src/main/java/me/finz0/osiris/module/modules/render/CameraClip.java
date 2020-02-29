@@ -4,6 +4,6 @@ import me.finz0.osiris.module.Module;
 
 public class CameraClip extends Module {
     public CameraClip() {
-        super("CameraClip", Category.RENDER);
+        super("CameraClip", Category.RENDER, "makes the third person camera clip through blocks");
     }
 }

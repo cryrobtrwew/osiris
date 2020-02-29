@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class StorageESP extends Module {
     public StorageESP() {
-        super("StorageESP", Category.RENDER);
+        super("StorageESP", Category.RENDER, "Highlight chests and stuff");
     }
 
     Setting a;

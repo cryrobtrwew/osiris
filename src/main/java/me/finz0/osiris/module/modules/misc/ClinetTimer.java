@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 public class ClinetTimer extends Module {
     public ClinetTimer() {
-        super("ClinetTimer", Category.MISC);
+        super("ClinetTimer", Category.MISC, "Clinet's TimerSwitch");
         OsirisMod.getInstance().settingsManager.rSetting(speedUsual = new Setting("ctSpeed", this, 4.2, 1, 10, false));
         OsirisMod.getInstance().settingsManager.rSetting(fastUsual = new Setting("ctFastSpeed", this, 10, 1, 1000, false));
         OsirisMod.getInstance().settingsManager.rSetting(tickToFast = new Setting("ctTickToFast", this, 4, 0, 20, false));

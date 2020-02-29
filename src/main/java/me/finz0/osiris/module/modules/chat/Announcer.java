@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Announcer extends Module {
     public Announcer() {
-        super("Announcer", Category.CHAT);
+        super("Announcer", Category.CHAT, "Announces what you do in chat");
     }
     public static int blockBrokeDelay = 0;
     static int blockPlacedDelay = 0;

@@ -23,7 +23,7 @@ import net.minecraft.util.math.Vec3i;
 
 public class AutoNomadHut extends Module {
     public AutoNomadHut() {
-        super("AutoNomadHut", Category.MISC);
+        super("AutoNomadHut", Category.MISC, "Builds a nomad hut around you");
         this.offsetStep = 0;
         this.playerHotbarSlot = -1;
         this.lastHotbarSlot = -1;

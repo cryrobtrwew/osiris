@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ClickGuiModule extends Module {
     public ClickGuiModule INSTANCE;
     public ClickGuiModule() {
-        super("ClickGUI", Category.GUI);
+        super("ClickGUI", Category.GUI, "Opens the ClickGUI");
         setBind(Keyboard.KEY_P);
         INSTANCE = this;
     }

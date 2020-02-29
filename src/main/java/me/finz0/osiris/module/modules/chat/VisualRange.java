@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class VisualRange extends Module {
     public VisualRange() {
-        super("VisualRange", Category.CHAT);
+        super("VisualRange", Category.CHAT, "Sends a client side message when someone enters your render distance");
     }
     List<Entity> knownPlayers = new ArrayList<>();;
     List<Entity> players;

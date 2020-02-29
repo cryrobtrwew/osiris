@@ -6,7 +6,7 @@ import me.finz0.osiris.module.Module;
 
 public class RpcModule extends Module {
     public RpcModule() {
-        super("DiscordRPC", Category.MISC);
+        super("DiscordRPC", Category.MISC, "Discord Rich Presence");
         setDrawn(false);
     }
 

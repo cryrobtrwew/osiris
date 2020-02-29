@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class GlowESP extends Module {
     public GlowESP() {
-        super("GlowESP", Category.RENDER);
+        super("GlowESP", Category.RENDER, "Gives entities the glowing effect");
     }
 
     Setting players;

@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class TotemPopCounter extends Module {
     public TotemPopCounter() {
-        super("TotemPopCounter", Category.MISC);
+        super("TotemPopCounter", Category.MISC, "Broken");
     }
 
     ConcurrentHashMap<Entity, Integer> players;

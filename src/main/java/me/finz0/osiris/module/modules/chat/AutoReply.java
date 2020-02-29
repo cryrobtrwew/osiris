@@ -8,7 +8,7 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent;
 
 public class AutoReply extends Module {
     public AutoReply() {
-        super("AutoReply", Category.CHAT);
+        super("AutoReply", Category.CHAT, "Reply to whispers");
     }
 
     private static String reply = "fuck off";

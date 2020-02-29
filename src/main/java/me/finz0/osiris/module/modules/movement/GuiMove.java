@@ -6,7 +6,7 @@ import org.lwjgl.input.Keyboard;
 
 public class GuiMove extends Module {
     public GuiMove() {
-        super("GuiMove", Category.MOVEMENT);
+        super("GuiMove", Category.MOVEMENT, "Let's you move in GUIs, look around with arrow keys");
     }
 
     public void onUpdate(){

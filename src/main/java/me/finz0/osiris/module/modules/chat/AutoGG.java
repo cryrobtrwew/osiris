@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class AutoGG extends Module {
     public static AutoGG INSTANCE;
     public AutoGG() {
-        super("AutoGG", Category.CHAT);
+        super("AutoGG", Category.CHAT, "Sends a message in chat when you kill someone");
         INSTANCE = this;
     }
     static List<String> AutoGgMessages = new ArrayList<>();

@@ -12,7 +12,7 @@ import me.zero.alpine.listener.Listener;
 
 public class Welcomer extends Module {
     public Welcomer() {
-        super("Welcomer", Category.CHAT);
+        super("Welcomer", Category.CHAT, "Sends a message when someone joins the server");
         OsirisMod.getInstance().settingsManager.rSetting(publicS = new Setting("wPublic", this, false));
     }
     Setting publicS;

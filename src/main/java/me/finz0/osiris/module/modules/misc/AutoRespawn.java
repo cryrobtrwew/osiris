@@ -11,7 +11,7 @@ import net.minecraft.client.gui.GuiGameOver;
 
 public class AutoRespawn extends Module {
     public AutoRespawn() {
-        super("AutoRespawn", Category.MISC);
+        super("AutoRespawn", Category.MISC, "Respawn when you die");
     }
 
     Setting coords;

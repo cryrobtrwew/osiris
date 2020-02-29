@@ -8,7 +8,7 @@ import net.minecraft.util.EnumHand;
 
 public class LowHands extends Module {
     public LowHands() {
-        super("LowOffhand", Category.RENDER);
+        super("LowOffhand", Category.RENDER, "Makes the item in your offhand not take up half of your screen");
     }
     Setting off;
     ItemRenderer itemRenderer = mc.entityRenderer.itemRenderer;

@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 
 public class ShulkerPreview extends Module {
     public ShulkerPreview() {
-        super("ShulkerPreview", Category.RENDER);
+        super("ShulkerPreview", Category.RENDER, "Show shulker contents when you hover over them");
     }
 
     public static boolean pinned = false;

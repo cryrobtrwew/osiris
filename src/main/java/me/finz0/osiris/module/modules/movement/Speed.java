@@ -7,7 +7,7 @@ import net.minecraft.util.math.MathHelper;
 
 public class Speed extends Module {
     public Speed() {
-        super("Strafe", Category.MOVEMENT);
+        super("Strafe", Category.MOVEMENT, "Makes you go fast");
     }
 
     int waitCounter;

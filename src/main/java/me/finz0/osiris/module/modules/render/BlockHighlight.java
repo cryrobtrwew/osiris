@@ -15,7 +15,7 @@ import java.awt.*;
 
 public class BlockHighlight extends Module {
     public BlockHighlight() {
-        super("BlockHighlight", Category.RENDER);
+        super("BlockHighlight", Category.RENDER, "Highlights the block you're looking at");
     }
 
     Setting r;

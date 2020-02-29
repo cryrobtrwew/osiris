@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CropNuker extends Module {
     public CropNuker() {
-        super("CropNuker", Category.MISC);
+        super("CropNuker", Category.MISC, "Destroy crops around you");
         OsirisMod.getInstance().settingsManager.rSetting(range = new Setting("cnRange", this, 4.5, 0, 10, false));
         OsirisMod.getInstance().settingsManager.rSetting(tickDelay = new Setting("cnTickDelay", this, 5, 0, 100, true));
     }

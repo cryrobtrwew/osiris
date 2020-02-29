@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 
 public class FastUse extends Module {
     public FastUse() {
-        super("FastUse", Category.PLAYER);
+        super("FastUse", Category.PLAYER, "Sets right click / block break delay to 0");
     }
 
     Setting xp;

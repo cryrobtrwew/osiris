@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 //kaaaaaaami
 public class Surround extends Module {
     public Surround() {
-        super("Surround", Category.COMBAT);
+        super("Surround", Category.COMBAT, "Places obsidian at your feet");
     }
     private List<Block> whiteList = Arrays.asList(new Block[] {
             Blocks.OBSIDIAN,

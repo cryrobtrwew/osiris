@@ -9,7 +9,7 @@ import net.minecraft.network.play.client.CPacketConfirmTeleport;
 
 public class PortalGodMode extends Module {
     public PortalGodMode() {
-        super("PortalGodmode", Category.PLAYER);
+        super("PortalGodmode", Category.PLAYER, "Godmode when you go through a portal");
     }
 
     public void onEnable() {

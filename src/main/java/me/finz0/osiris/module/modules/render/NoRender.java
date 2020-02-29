@@ -10,7 +10,7 @@ import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 
 public class NoRender extends Module {
     public NoRender() {
-        super("NoRender", Category.RENDER);
+        super("NoRender", Category.RENDER, "Prevents rendering some things");
     }
 
     public Setting armor;

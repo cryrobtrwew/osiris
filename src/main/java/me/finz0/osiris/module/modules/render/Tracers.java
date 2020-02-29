@@ -18,7 +18,7 @@ import java.awt.*;
 
 public class Tracers extends Module {
     public Tracers() {
-        super("Tracers", Category.RENDER);
+        super("Tracers", Category.RENDER, "Draw lines to players");
     }
 
     Setting opacity;

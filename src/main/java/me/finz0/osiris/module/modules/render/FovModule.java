@@ -6,7 +6,7 @@ import me.finz0.osiris.module.Module;
 
 public class FovModule extends Module {
     public FovModule() {
-        super("FOV", Category.RENDER);
+        super("FOV", Category.RENDER, "Changes your fov");
         OsirisMod.getInstance().settingsManager.rSetting(fov = new Setting("FovAmount", this, 90, 0, 180, true));
         setDrawn(false);
     }

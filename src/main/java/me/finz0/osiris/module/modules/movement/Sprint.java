@@ -4,7 +4,7 @@ import me.finz0.osiris.module.Module;
 
 public class Sprint extends Module {
     public Sprint() {
-        super("Sprint", Category.MOVEMENT);
+        super("Sprint", Category.MOVEMENT, "Automatically sprint");
     }
 
     public void onUpdate(){

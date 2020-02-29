@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class DeathWaypoint extends Module {
     public DeathWaypoint() {
-        super("DeathWaypoint", Category.MISC);
+        super("DeathWaypoint", Category.MISC, "Makes a waypoint where you die");
     }
 
     @EventHandler

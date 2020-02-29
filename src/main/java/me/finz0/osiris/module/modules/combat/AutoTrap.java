@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class AutoTrap extends Module {
     public AutoTrap() {
-        super("AutoTrap", Category.COMBAT);
+        super("AutoTrap", Category.COMBAT, "Traps nearby players");
     }
 
     Setting rotate;

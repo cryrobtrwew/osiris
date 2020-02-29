@@ -24,16 +24,18 @@ import net.minecraftforge.event.world.WorldEvent;
 
 public class LogoutSpots extends Module {
     public LogoutSpots() {
-        super("LogoutSpots", Category.MISC);
+        super("LogoutSpots", Category.MISC, "Shows where players log out");
     }
     Map<Entity, String> loggedPlayers = new ConcurrentHashMap<>();
 
     @EventHandler
     private Listener<PlayerJoinEvent> listener1 = new Listener<>(event -> {
-        if(mc.world.getPlayerEntityByName(event.getName()) != null && loggedPlayers.containsKey(mc.world.getPlayerEntityByName(event.getName()))) {
             Command.sendClientMessage(event.getName() + " reconnected!");
-            loggedPlayers.remove(mc.world.getPlayerEntityByName(event.getName()));
-        }
+            loggedPlayers.forEach((e, s) -> {
+                try {
+                    if (e.getName().equalsIgnoreCase(event.getName())) loggedPlayers.remove(e);
+                } catch(Exception ex){ex.printStackTrace();}
+            });
     });
 
     @EventHandler
@@ -80,8 +82,7 @@ public class LogoutSpots extends Module {
         if (mc.player == null) {
             loggedPlayers.clear();
          }else {
-            if (!mc.player.isDead)
-                loggedPlayers.clear();
+            if (!mc.player.isDead) loggedPlayers.clear();
         }
     });
 

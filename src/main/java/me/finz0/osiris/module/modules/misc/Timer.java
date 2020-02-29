@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 public class Timer extends Module {
     public static Timer INSTANCE;
     public Timer() {
-        super("Timer", Category.MISC);
+        super("Timer", Category.MISC, "Change client tps");
         INSTANCE = this;
     }
 

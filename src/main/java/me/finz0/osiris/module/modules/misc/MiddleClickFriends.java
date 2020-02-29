@@ -13,7 +13,7 @@ import org.lwjgl.input.Mouse;
 
 public class MiddleClickFriends extends Module {
     public MiddleClickFriends() {
-        super("MCF", Category.MISC);
+        super("MCF", Category.MISC, "Middle click players to add / remove them as a friend");
     }
 
     @EventHandler

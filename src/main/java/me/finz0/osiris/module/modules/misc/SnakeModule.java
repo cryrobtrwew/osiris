@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class SnakeModule extends Module {
     public SnakeModule() {
-        super("Snake", Category.MISC);
+        super("Snake", Category.MISC, "Play snake");
     }
 
     public void onEnable(){

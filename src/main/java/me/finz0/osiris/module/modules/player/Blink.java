@@ -15,10 +15,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 //seppuku skid, dont care enough to rewrite
 public class Blink extends Module {
     public Blink() {
-        super("Blink", Category.PLAYER);
+        super("Blink", Category.PLAYER, "Cancels most packets");
     }
     EntityOtherPlayerMP entity;
-    private final Queue<Packet> packets = new ConcurrentLinkedQueue();
+    private final Queue<Packet> packets = new ConcurrentLinkedQueue<>();
     @EventHandler
     private Listener<PacketEvent.Send> packetSendListener = new Listener<>(event -> {
         Packet packet = event.getPacket();
