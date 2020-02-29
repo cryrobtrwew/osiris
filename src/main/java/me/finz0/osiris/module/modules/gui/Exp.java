@@ -23,6 +23,7 @@ public class Exp extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Short");
         modes.add("Full");
+        modes.add("Item");
         red = new Setting("ExpRed", this, 255, 0, 255, true);
         green = new Setting("ExpGreen", this, 255, 0, 255, true);
         blue = new Setting("ExpBlue", this, 255, 0, 255, true);

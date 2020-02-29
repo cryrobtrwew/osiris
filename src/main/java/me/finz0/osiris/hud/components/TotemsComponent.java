@@ -7,8 +7,10 @@ import de.Hero.clickgui.util.FontUtil;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.ModuleManager;
 import me.finz0.osiris.module.modules.gui.Totems;
+import me.finz0.osiris.util.FontUtils;
 import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -36,8 +38,19 @@ public class TotemsComponent extends Panel {
 
     public void drawHud(){
         doStuff();
-        if(font) OsirisMod.fontRenderer.drawStringWithShadow(tot, (float)x, (float)y, text.getRGB());
-        else mc.fontRenderer.drawStringWithShadow(tot, (float)x, (float)y, text.getRGB());
+        if(mod.mode.getValString().equalsIgnoreCase("Item")){
+            ItemStack is;
+            if(totems == 0) is = new ItemStack(Items.TOTEM_OF_UNDYING);
+            else is = new ItemStack(Items.TOTEM_OF_UNDYING, totems);
+            RenderHelper.enableGUIStandardItemLighting();
+            mc.getRenderItem().renderItemAndEffectIntoGUI(is, (int)x, (int)y);
+            RenderHelper.disableStandardItemLighting();
+            FontUtils.drawStringWithShadow(font, totems + "", (int)x + 16, (int)y + 9 - (FontUtils.getFontHeight(font) / 2), text.getRGB());
+        } else {
+            if (font) OsirisMod.fontRenderer.drawStringWithShadow(tot, (float) x, (float) y, text.getRGB());
+            else mc.fontRenderer.drawStringWithShadow(tot, (float) x, (float) y, text.getRGB());
+        }
+
     }
 
     @Override
@@ -50,7 +63,8 @@ public class TotemsComponent extends Panel {
             x = x2 + mouseX;
             y = y2 + mouseY;
         }
-        this.width = w;
+        if(mod.mode.getValString().equalsIgnoreCase("Item")) w = 18;
+        width = w;
         this.height = FontUtil.getFontHeight() + 2;
         Gui.drawRect((int)x, (int)y, (int)x + (int)width, (int)y + (int)height, c.getRGB());
         FontUtil.drawStringWithShadow(title, x, y + height / 2 - FontUtil.getFontHeight()/2f, 0xffffffff);
@@ -58,8 +72,17 @@ public class TotemsComponent extends Panel {
         if(extended) {
             double startY = y + height;
             Gui.drawRect((int) x, (int) startY, (int) x + (int) width, (int) startY + (int) height, c.getRGB());
-            if (font) OsirisMod.fontRenderer.drawStringWithShadow(tot, (float) x, (float) startY, text.getRGB());
-            else mc.fontRenderer.drawStringWithShadow(tot, (float) x, (float) startY, text.getRGB());
+            if(mod.mode.getValString().equalsIgnoreCase("Item")){
+                ItemStack is = new ItemStack(Items.TOTEM_OF_UNDYING, totems);
+                if(totems == 0) is = new ItemStack(Items.END_CRYSTAL);
+                RenderHelper.enableGUIStandardItemLighting();
+                mc.getRenderItem().renderItemAndEffectIntoGUI(is, (int)x, (int)startY);
+                RenderHelper.disableStandardItemLighting();
+                FontUtils.drawStringWithShadow(font, totems + "", (int)x + 16, (int)startY + 9 - (FontUtils.getFontHeight(font) / 2),  text.getRGB());
+            } else {
+                if (font) OsirisMod.fontRenderer.drawStringWithShadow(tot, (float) x, (float) startY, text.getRGB());
+                else mc.fontRenderer.drawStringWithShadow(tot, (float) x, (float) startY, text.getRGB());
+            }
         }
     }
 

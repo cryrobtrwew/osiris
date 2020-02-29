@@ -23,6 +23,7 @@ public class Gapples extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Short");
         modes.add("Full");
+        modes.add("Item");
         red = new Setting("GapplesRed", this, 255, 0, 255, true);
         green = new Setting("GapplesGreen", this, 255, 0, 255, true);
         blue = new Setting("GapplesBlue", this, 255, 0, 255, true);

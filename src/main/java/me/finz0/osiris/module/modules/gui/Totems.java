@@ -22,6 +22,7 @@ public class Totems extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Short");
         modes.add("Full");
+        modes.add("Item");
         red = new Setting("TotemsRed", this, 255, 0, 255, true);
         green = new Setting("TotemsGreen", this, 255, 0, 255, true);
         blue = new Setting("TotemsBlue", this, 255, 0, 255, true);

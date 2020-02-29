@@ -7,8 +7,10 @@ import de.Hero.clickgui.util.FontUtil;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.module.ModuleManager;
 import me.finz0.osiris.module.modules.gui.Gapples;
+import me.finz0.osiris.util.FontUtils;
 import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -35,8 +37,18 @@ public class GappsComponent extends Panel {
 
     public void drawHud(){
         doStuff();
-        if(font) OsirisMod.fontRenderer.drawStringWithShadow(gaps, (float)x, (float)y, text.getRGB());
-        else mc.fontRenderer.drawStringWithShadow(gaps, (float)x, (float)y, text.getRGB());
+        if(mod.mode.getValString().equalsIgnoreCase("Item")){
+            ItemStack is;
+            if(gapples == 0) is = new ItemStack(Items.GOLDEN_APPLE);
+            else is = new ItemStack(Items.GOLDEN_APPLE, gapples);
+            RenderHelper.enableGUIStandardItemLighting();
+            mc.getRenderItem().renderItemAndEffectIntoGUI(is, (int)x, (int)y);
+            RenderHelper.disableStandardItemLighting();
+            FontUtils.drawStringWithShadow(font, gapples + "", (int)x + 16, (int)y + 9 - (FontUtils.getFontHeight(font) / 2),  text.getRGB());
+        } else {
+            if (font) OsirisMod.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) y, text.getRGB());
+            else mc.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) y, text.getRGB());
+        }
     }
 
     @Override
@@ -49,6 +61,7 @@ public class GappsComponent extends Panel {
             x = x2 + mouseX;
             y = y2 + mouseY;
         }
+        if(mod.mode.getValString().equalsIgnoreCase("Item")) w = 18;
         this.width = w;
         this.height = FontUtil.getFontHeight() + 2;
         Gui.drawRect((int)x, (int)y, (int)x + (int)width, (int)y + (int)height, c.getRGB());
@@ -57,8 +70,17 @@ public class GappsComponent extends Panel {
         if(extended) {
             double startY = y + height;
             Gui.drawRect((int) x, (int) startY, (int) x + (int) width, (int) startY + (int) height, c.getRGB());
-            if (font) OsirisMod.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) startY, text.getRGB());
-            else mc.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) startY, text.getRGB());
+            if(mod.mode.getValString().equalsIgnoreCase("Item")){
+                ItemStack is = new ItemStack(Items.GOLDEN_APPLE, gapples);
+                if(gapples == 0) is = new ItemStack(Items.END_CRYSTAL);
+                RenderHelper.enableGUIStandardItemLighting();
+                mc.getRenderItem().renderItemAndEffectIntoGUI(is, (int)x, (int)startY);
+                RenderHelper.disableStandardItemLighting();
+                FontUtils.drawStringWithShadow(font, gapples + "", (int)x + 16, (int)startY + 9 - (FontUtils.getFontHeight(font) / 2),  text.getRGB());
+            } else {
+                if (font) OsirisMod.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) startY, text.getRGB());
+                else mc.fontRenderer.drawStringWithShadow(gaps, (float) x, (float) startY, text.getRGB());
+            }
         }
     }
 

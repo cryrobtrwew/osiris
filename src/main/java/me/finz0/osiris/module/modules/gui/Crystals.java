@@ -22,6 +22,7 @@ public class Crystals extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Short");
         modes.add("Full");
+        modes.add("Item");
         red = new Setting("CrystalsRed", this, 255, 0, 255, true);
         green = new Setting("CrystalsGreen", this, 255, 0, 255, true);
         blue = new Setting("CrystalsBlue", this, 255, 0, 255, true);
