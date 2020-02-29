@@ -4,13 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import me.finz0.osiris.OsirisMod;
-import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import de.Hero.clickgui.elements.ModuleButton;
 import de.Hero.clickgui.util.ColorUtil;
 import de.Hero.clickgui.util.FontUtil;
-import net.minecraft.client.gui.GuiScreen;
 
 /**
  *  Made by HeroCode

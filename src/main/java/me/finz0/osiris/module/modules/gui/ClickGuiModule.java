@@ -29,6 +29,7 @@ public class ClickGuiModule extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiRed", this, 255, 0, 255, true));
         OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiGreen", this, 26, 0, 255, true));
         OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiBlue", this, 42, 0, 255, true));
+        rSetting(new Setting("GuiTooltips", this, true));
     }
 
     public void onEnable(){

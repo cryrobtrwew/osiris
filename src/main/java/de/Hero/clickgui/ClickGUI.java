@@ -181,6 +181,19 @@ public class ClickGUI extends GuiScreen {
 			//FontUtil.drawTotalCenteredStringWithShadow("by HeroCode", 0, 20, 0xffffffff);
 		}
 
+		//tooltips
+		for(Panel p : panels){
+			for(ModuleButton b : p.Elements){
+				if(b.isHovered(mouseX, mouseY) && OsirisMod.getInstance().settingsManager.getSettingByName("GuiTooltips").getValBoolean()){
+					String desc = b.mod.getDescription();
+					int xx = mouseX + 10;
+					int yy = mouseY - 5;
+					Gui.drawRect(xx - 2, yy - 2, xx + FontUtil.getStringWidth(desc) + 2, yy + FontUtil.getFontHeight() + 2, 0xaa111111);
+					FontUtil.drawStringWithShadow(desc, xx, yy, 0xffffffff);
+				}
+			}
+		}
+
 		/*
 		 * Nicht bentigt, aber es ist so einfach sauberer ;)
 		 * Und ohne diesen call knnen keine GUIButtons/andere Elemente

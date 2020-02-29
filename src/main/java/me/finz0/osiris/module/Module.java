@@ -15,6 +15,7 @@ public class Module {
     int bind;
     boolean enabled;
     boolean drawn;
+    String description;
 
     public Module(String n, Category c) {
         name = n;
@@ -22,6 +23,17 @@ public class Module {
         bind = Keyboard.KEY_NONE;
         enabled = false;
         drawn = true;
+        description = "No description";
+        setup();
+    }
+
+    public Module(String n, Category c, String desc) {
+        name = n;
+        category = c;
+        bind = Keyboard.KEY_NONE;
+        enabled = false;
+        drawn = true;
+        description = desc;
         setup();
     }
 
@@ -101,6 +113,14 @@ public class Module {
 
     public void rSetting(Setting setting){
         OsirisMod.getInstance().settingsManager.rSetting(setting);
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String desc){
+        description = desc;
     }
 
     public enum Category{
