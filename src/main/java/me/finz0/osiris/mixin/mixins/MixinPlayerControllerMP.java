@@ -18,6 +18,7 @@ public class MixinPlayerControllerMP {
         OsirisMod.EVENT_BUS.post(new DestroyBlockEvent(pos));
     }
 
+    //credit cookiedragon234
     @Inject(method = "resetBlockRemoving", at = @At("HEAD"), cancellable = true)
     private void resetBlock(CallbackInfo ci){
         if(ModuleManager.isModuleEnabled("BreakTweaks")) ci.cancel();

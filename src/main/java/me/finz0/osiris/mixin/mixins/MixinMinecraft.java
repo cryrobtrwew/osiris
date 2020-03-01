@@ -22,6 +22,7 @@ public class MixinMinecraft {
             OsirisMod.EVENT_BUS.post(screenEvent);
     }
 
+    //credit cookiedragon234 this is very epic
     @Redirect(method = "sendClickBlockToController", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/EntityPlayerSP;isHandActive()Z"))
     private boolean isHandActive(EntityPlayerSP player){
         return !ModuleManager.isModuleEnabled("BreakTweaks");
