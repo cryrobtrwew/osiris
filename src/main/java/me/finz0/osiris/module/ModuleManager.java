@@ -65,6 +65,7 @@ public class ModuleManager {
         addMod(new DeathWaypoint());
         addMod(new ClinetTimer());
         addMod(new TotemPopCounter());
+        addMod(new BreakTweaks());
         //Chat
         addMod(new VisualRange());
         addMod(new BetterChat());

@@ -1,5 +1,6 @@
 package me.finz0.osiris.module.modules.misc;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import me.finz0.osiris.OsirisMod;
 import me.finz0.osiris.command.Command;
 import me.finz0.osiris.event.events.PlayerJoinEvent;
@@ -9,8 +10,8 @@ import me.finz0.osiris.module.Module;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import me.finz0.osiris.util.OsirisTessellator;
@@ -27,29 +28,36 @@ public class LogoutSpots extends Module {
         super("LogoutSpots", Category.MISC, "Shows where players log out");
     }
     Map<Entity, String> loggedPlayers = new ConcurrentHashMap<>();
+    List<Entity> lastTickEntities;
 
     @EventHandler
     private Listener<PlayerJoinEvent> listener1 = new Listener<>(event -> {
-            Command.sendClientMessage(event.getName() + " reconnected!");
             loggedPlayers.forEach((e, s) -> {
                 try {
-                    if (e.getName().equalsIgnoreCase(event.getName())) loggedPlayers.remove(e);
-                } catch(Exception ex){ex.printStackTrace();}
+                    if (e.getName().equalsIgnoreCase(event.getName())) {
+                        loggedPlayers.remove(e);
+                        Command.sendClientMessage(ChatFormatting.BOLD + event.getName() + " reconnected!");
+                    }
+                } catch(ConcurrentModificationException ex){ex.printStackTrace();}
             });
     });
 
     @EventHandler
     private Listener<PlayerLeaveEvent> listener2 = new Listener<>(event -> {
         if (mc.world == null) return;
-        mc.world.loadedEntityList.forEach(e ->{
-            if(e.getName().equals(event.getName()) && !loggedPlayers.containsKey(e)){
+        lastTickEntities.forEach(e ->{
+            if(e.getName().equalsIgnoreCase(event.getName())){
                 String date = new SimpleDateFormat("k:mm").format(new Date());
                 loggedPlayers.put(e, date);
                 String pos = "x" + e.getPosition().getX() + " y" + e.getPosition().getY() + " z" + e.getPosition().getZ();
-                Command.sendClientMessage(event.getName() + " disconnected at " + pos + "!");
+                Command.sendClientMessage(ChatFormatting.BOLD + event.getName() + " disconnected at " + pos + "!");
             }
         });
     });
+
+    public void onUpdate(){
+        lastTickEntities = mc.world.loadedEntityList;
+    }
 
     public void onWorldRender(RenderEvent event) {
         loggedPlayers.forEach((e, time) -> {
@@ -70,6 +78,7 @@ public class LogoutSpots extends Module {
 
     @EventHandler
     private Listener<WorldEvent.Unload> listener3 = new Listener<>(event -> {
+        lastTickEntities.clear();
         if(mc.player == null)
             loggedPlayers.clear();
         else
@@ -79,6 +88,7 @@ public class LogoutSpots extends Module {
 
     @EventHandler
     private Listener<WorldEvent.Load> listener4 = new Listener<>(event -> {
+        lastTickEntities.clear();
         if (mc.player == null) {
             loggedPlayers.clear();
          }else {
@@ -87,12 +97,14 @@ public class LogoutSpots extends Module {
     });
 
     public void onEnable(){
+        lastTickEntities = new ArrayList<>();
         loggedPlayers.clear();
         OsirisMod.EVENT_BUS.subscribe(this);
     }
 
     public void onDisable() {
         loggedPlayers.clear();
+        lastTickEntities.clear();
         OsirisMod.EVENT_BUS.unsubscribe(this);
     }
 
