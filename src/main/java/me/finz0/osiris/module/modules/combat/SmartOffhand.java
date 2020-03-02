@@ -2,6 +2,7 @@ package me.finz0.osiris.module.modules.combat;
 
 import de.Hero.settings.Setting;
 import me.finz0.osiris.OsirisMod;
+import me.finz0.osiris.command.Command;
 import me.finz0.osiris.module.Module;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
@@ -39,6 +40,11 @@ public class SmartOffhand extends Module {
         OsirisMod.getInstance().settingsManager.rSetting(health = new Setting("soHealth", this, 10, 1, 40, true));
         OsirisMod.getInstance().settingsManager.rSetting(crystalCheck = new Setting("soCrystalCheck", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(itemSetting = new Setting("soItem", this, "Crystal", items));
+    }
+
+    public void onEnable(){
+        if(mc.player != null)
+            Command.sendClientMessage("[SmartOffhand] Use at your own risk, this might fail sometimes. Pro tip: always have an empty inventory slot.");
     }
 
     public void onUpdate() {
