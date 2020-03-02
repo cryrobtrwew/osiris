@@ -80,6 +80,7 @@ public class ModuleManager {
         addMod(new ColorChat());
         addMod(new ChatSuffix());
         addMod(new KettuLinuxDupe());
+        addMod(new ChatTimeStamps());
         //Render
         addMod(new GlowESP());
         addMod(new CameraClip());

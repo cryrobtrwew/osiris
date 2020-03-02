@@ -21,15 +21,12 @@ public class BetterChat extends Module {
     }
 
     public Setting clearBkg;
-    Setting timeStamps;
     Setting nameHighlight;
     Setting friendHighlight;
 
     public void setup(){
         clearBkg = new Setting("Clear", this, true);
         OsirisMod.getInstance().settingsManager.rSetting(clearBkg);
-        timeStamps = new Setting("TimeStamps", this, true);
-        OsirisMod.getInstance().settingsManager.rSetting(timeStamps);
         OsirisMod.getInstance().settingsManager.rSetting(nameHighlight = new Setting("NameHighlight", this, false));
         OsirisMod.getInstance().settingsManager.rSetting(friendHighlight = new Setting("FriendHighlight", this, false));
     }
@@ -53,11 +50,6 @@ public class BetterChat extends Module {
             if(!event.getMessage().getUnformattedText().startsWith("<"+mc.player.getName()+">") && event.getMessage().getUnformattedText().toLowerCase().contains(name)) {
                 event.getMessage().getStyle().setParentStyle(style.setBold(true).setColor(TextFormatting.GOLD));
             }
-        }
-        if(timeStamps.getValBoolean()) {
-            String date = new SimpleDateFormat("k:mm").format(new Date());
-            TextComponentString newMsg = new TextComponentString(ChatFormatting.GRAY + "[" + date + "]" + ChatFormatting.RESET);
-            event.setMessage(newMsg.appendSibling(event.getMessage()));
         }
     });
 
