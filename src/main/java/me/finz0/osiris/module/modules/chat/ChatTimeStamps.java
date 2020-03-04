@@ -13,24 +13,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-//TODO: AM/PM and 12 hour formats don't work
 public class ChatTimeStamps extends Module {
     public ChatTimeStamps() {
         super("ChatTimeStamps", Category.CHAT);
         ArrayList<String> formats = new ArrayList<>();
-        formats.add("HOUR24:MIN");
-        formats.add("HOUR12:MIN");
-        formats.add("HOUR12:MIN AM/PM");
-        formats.add("HOUR24:MIN:SEC");
-        formats.add("HOUR12:MIN:SEC");
-        formats.add("HOUR12:MIN:SEC AM/PM");
-        ArrayList<String> deco = new ArrayList<>(); deco.add("< >"); deco.add("[ ]"); deco.add("NONE");
+        formats.add("H24:mm");
+        formats.add("H12:mm");
+        formats.add("H12:mm a");
+        formats.add("H24:mm:ss");
+        formats.add("H12:mm:ss");
+        formats.add("H12:mm:ss a");
+        ArrayList<String> deco = new ArrayList<>(); deco.add("< >"); deco.add("[ ]"); deco.add("{ }"); deco.add(" ");
         ArrayList<String> colors = new ArrayList<>();
         for(ChatFormatting cf : ChatFormatting.values()){
             colors.add(cf.getName());
         }
 
-        rSetting(format = new Setting("ctsFormat", this, "HOUR24:MIN", formats));
+        rSetting(format = new Setting("ctsFormat", this, "H24:M", formats));
         rSetting(color = new Setting("ctsColor", this, ChatFormatting.GRAY.getName(), colors));
         rSetting(decoration = new Setting("ctsDeco", this, "[ ]", deco));
         rSetting(space = new Setting("ctsSpace", this, false));
@@ -43,20 +42,13 @@ public class ChatTimeStamps extends Module {
 
     @EventHandler
     private Listener<ClientChatReceivedEvent> listener = new Listener<>(event -> {
-        boolean beMe = decoration.getValString().equalsIgnoreCase("< >");
-        boolean brackets = decoration.getValString().equalsIgnoreCase("[ ]");
-        String decoLeft = beMe ? "<" : brackets ? "[" : "";
-        String decoRight = beMe ? ">" : brackets ? "]" : "";
+        String decoLeft = decoration.getValString().equalsIgnoreCase(" ") ? "" : decoration.getValString().split(" ")[0];
+        String decoRight = decoration.getValString().equalsIgnoreCase(" ") ? "" : decoration.getValString().split(" ")[1];
         if(space.getValBoolean()) decoRight += " ";
-        String dateFormat = format.getValString()
-                .replace("HOUR24", "k")
-                .replace("HOUR12", "H")
-                .replace("MIN", "mm")
-                .replace("SEC", "ss")
-                .replace("AP/PM", "a");
+        String dateFormat = format.getValString().replace("H24", "k").replace("H12", "h");
         String date = new SimpleDateFormat(dateFormat).format(new Date());
-        TextComponentString newMsg = new TextComponentString(ChatFormatting.getByName(color.getValString()) + decoLeft + date + decoRight + ChatFormatting.RESET);
-        event.setMessage(newMsg.appendSibling(event.getMessage()));
+        TextComponentString time = new TextComponentString(ChatFormatting.getByName(color.getValString()) + decoLeft + date + decoRight + ChatFormatting.RESET);
+        event.setMessage(time.appendSibling(event.getMessage()));
     });
 
     public void onEnable(){
