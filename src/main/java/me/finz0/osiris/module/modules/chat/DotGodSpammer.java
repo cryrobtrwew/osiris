@@ -15,7 +15,7 @@ public class DotGodSpammer extends Module {
     Setting delay;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("dsDelay", this, 2, 1, 100, true));
+        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("Delay", this, 2, 1, 100, true, "DotgodSpammerDelay"));
     }
 
     public void onUpdate(){

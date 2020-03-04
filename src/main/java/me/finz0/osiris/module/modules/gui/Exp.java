@@ -24,15 +24,15 @@ public class Exp extends Module {
         modes.add("Short");
         modes.add("Full");
         modes.add("Item");
-        red = new Setting("ExpRed", this, 255, 0, 255, true);
-        green = new Setting("ExpGreen", this, 255, 0, 255, true);
-        blue = new Setting("ExpBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "ExperienceRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "ExperienceGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "ExperienceBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("expRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("expCFont", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("expText", this, "Short", modes));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "ExperienceRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "ExperienceCustomFont"));
+        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("Mode", this, "Short", modes, "ExperienceMode"));
     }
 
     public void onEnable(){

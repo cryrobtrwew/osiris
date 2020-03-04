@@ -152,7 +152,7 @@ public class ClickGUI extends GuiScreen {
 						for (Element e : b.menuelements) {
 							e.offset = off;
 							e.update();
-							if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("New")){
+							if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("New")){
 								Gui.drawRect((int)e.x, (int)e.y, (int)e.x + (int)e.width + 2, (int)e.y + (int)e.height, outlineColor);
 							}
 							e.drawScreen(mouseX, mouseY, partialTicks);
@@ -184,7 +184,7 @@ public class ClickGUI extends GuiScreen {
 		//tooltips
 		for(Panel p : panels){
 			for(ModuleButton b : p.Elements){
-				if(b.isHovered(mouseX, mouseY) && OsirisMod.getInstance().settingsManager.getSettingByName("GuiTooltips").getValBoolean()){
+				if(b.isHovered(mouseX, mouseY) && OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiTooltips").getValBoolean()){
 					String desc = b.mod.getDescription();
 					int xx = mouseX + 10;
 					int yy = mouseY - 5;

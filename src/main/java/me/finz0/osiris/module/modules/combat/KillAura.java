@@ -29,11 +29,11 @@ public class KillAura extends Module {
     private Setting caCheck;
     private Setting criticals;
     public void setup(){
-        range = new Setting("kaRange", this, 5.0, 0.0, 10.0, false);
+        range = new Setting("Range", this, 5.0, 0.0, 10.0, false, "KillAuraRange");
         OsirisMod.getInstance().settingsManager.rSetting(range);
-        OsirisMod.getInstance().settingsManager.rSetting(criticals = new Setting("kaCriticals", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(swordOnly = new Setting("kaSwordOnly", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(caCheck = new Setting("CAuraCheck", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(criticals = new Setting("Criticals", this, false, "KillAuraCriticals"));
+        OsirisMod.getInstance().settingsManager.rSetting(swordOnly = new Setting("SwordOnly", this, false, "KillAuraSwordOnly"));
+        OsirisMod.getInstance().settingsManager.rSetting(caCheck = new Setting("CrystalAuraCheck", this, false, "KillAuraCaCheck"));
 
     }
 

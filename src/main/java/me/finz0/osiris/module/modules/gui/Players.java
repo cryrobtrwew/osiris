@@ -29,14 +29,14 @@ public class Players extends Module {
     ChatFormatting cf;
 
     public void setup(){
-        x = new Setting("pX", this, 2, 0, 1000, true);
-        y = new Setting("pY", this, 2, 0, 1000, true);
+        x = new Setting("X", this, 2, 0, 1000, true, "PlayersX");
+        y = new Setting("Y", this, 2, 0, 1000, true, "PlayersY");
         OsirisMod.getInstance().settingsManager.rSetting(x);
         OsirisMod.getInstance().settingsManager.rSetting(y);
-        right = new Setting("pAlignRight", this, false);
+        right = new Setting("AlignRight", this, false, "PlayersAlignRight");
         OsirisMod.getInstance().settingsManager.rSetting(right);
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("pCFont", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(distance = new Setting("pDistance", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "PlayersCustomFont"));
+        OsirisMod.getInstance().settingsManager.rSetting(distance = new Setting("Distance", this, false, "PlayersDistance"));
     }
 
     public void onRender(){

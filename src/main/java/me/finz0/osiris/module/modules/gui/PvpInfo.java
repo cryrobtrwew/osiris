@@ -21,15 +21,15 @@ public class PvpInfo extends Module {
     public Setting customFont;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(offRainbow = new Setting("piOffRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(offR = new Setting("piOffR", this, 255, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(offG = new Setting("piOffG", this, 0, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(offB = new Setting("piOffB", this, 0, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(onRainbow = new Setting("piOnRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(onR = new Setting("piOnR", this, 0, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(onG = new Setting("piOnG", this, 255, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(onB = new Setting("piOnB", this, 0, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("piCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(offRainbow = new Setting("OffRainbow", this, false, "PvpInfoOffRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(offR = new Setting("OffR", this, 255, 0, 255, true, "PvpInfoOffRed"));
+        OsirisMod.getInstance().settingsManager.rSetting(offG = new Setting("OffG", this, 0, 0, 255, true, "PvpInfoOffGreen"));
+        OsirisMod.getInstance().settingsManager.rSetting(offB = new Setting("OffB", this, 0, 0, 255, true, "PvpInfoOffBlue"));
+        OsirisMod.getInstance().settingsManager.rSetting(onRainbow = new Setting("OnRainbow", this, false, "PvpInfoOnRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(onR = new Setting("OnR", this, 0, 0, 255, true, "PvpInfoOnRed"));
+        OsirisMod.getInstance().settingsManager.rSetting(onG = new Setting("OnG", this, 255, 0, 255, true, "PvpInfoOnGreen"));
+        OsirisMod.getInstance().settingsManager.rSetting(onB = new Setting("OnB", this, 0, 0, 255, true, "PvpInfoOnBlue"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "PvpInfoCustomFont"));
     }
 
     public void onEnable(){

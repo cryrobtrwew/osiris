@@ -25,15 +25,15 @@ public class PotionEffects extends Module {
     DecimalFormat format2 = new DecimalFormat("00");
 
     public void setup(){
-        x = new Setting("fxX", this, 2, 0, 1000, true);
-        y = new Setting("fxY", this, 12, 0, 1000, true);
+        x = new Setting("X", this, 2, 0, 1000, true, "PotionEffectsX");
+        y = new Setting("Y", this, 12, 0, 1000, true, "PotionEffectsY");
         OsirisMod.getInstance().settingsManager.rSetting(x);
         OsirisMod.getInstance().settingsManager.rSetting(y);
-        sortUp = new Setting("fxSortUp", this, true);
+        sortUp = new Setting("SortUp", this, true, "PotionEffectsSortUp");
         OsirisMod.getInstance().settingsManager.rSetting(sortUp);
-        right = new Setting("fxAlignRight", this, false);
+        right = new Setting("AlignRight", this, false, "PotionEffectsAlignRight");
         OsirisMod.getInstance().settingsManager.rSetting(right);
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("fxCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "PotionEffectsCustomFont"));
     }
 
     public void onRender(){

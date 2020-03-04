@@ -20,11 +20,11 @@ public class NoRender extends Module {
     public Setting hurtCam;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(armor = new Setting("Armor", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(fire = new Setting("Fire", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(blind = new Setting("Blindness", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(nausea = new Setting("Nausea", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(hurtCam = new Setting("HurtCam", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(armor = new Setting("Armor", this, false, "NoRenderArmor"));
+        OsirisMod.getInstance().settingsManager.rSetting(fire = new Setting("Fire", this, false, "NoRenderFire"));
+        OsirisMod.getInstance().settingsManager.rSetting(blind = new Setting("Blindness", this, false, "NoRenderBlindnessEffect"));
+        OsirisMod.getInstance().settingsManager.rSetting(nausea = new Setting("Nausea", this, false, "NoRenderNauseaEffect"));
+        OsirisMod.getInstance().settingsManager.rSetting(hurtCam = new Setting("HurtCam", this, false, "NoRenderHurtCamera"));
     }
 
     public void onUpdate(){

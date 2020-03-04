@@ -25,15 +25,15 @@ public class Coords extends Module {
         modes.add("0.0");
         modes.add("0.00");
         modes.add("0.0#");
-        red = new Setting("CoordsRed", this, 255, 0, 255, true);
-        green = new Setting("CoordsGreen", this, 255, 0, 255, true);
-        blue = new Setting("CoordsBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "CoordinatesRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "CoordinatesGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "CoordinatesBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("coordsRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("coordsCFont", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(decimal = new Setting("coordsDecimalFormat", this, "0", modes));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "CoordinatesRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "CoordinatesCustomFont"));
+        OsirisMod.getInstance().settingsManager.rSetting(decimal = new Setting("DecimalFormat", this, "0", modes, "CoordinatesDecimalFormat"));
     }
 
     public void onEnable(){

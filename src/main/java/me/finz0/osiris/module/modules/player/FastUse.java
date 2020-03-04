@@ -17,13 +17,13 @@ public class FastUse extends Module {
     Setting breakS;
 
     public void setup(){
-        xp = new Setting( "fuEXP", this, true);
+        xp = new Setting( "EXP", this, true, "FastUseEXP");
         OsirisMod.getInstance().settingsManager.rSetting(xp);
-        crystals = new Setting("fuCrystals", this, true);
+        crystals = new Setting("Crystals", this, true, "FastUseCrystals");
         OsirisMod.getInstance().settingsManager.rSetting(crystals);
-        all = new Setting("fuEverything", this, false);
+        all = new Setting("Everything", this, false, "FastUseEverything");
         OsirisMod.getInstance().settingsManager.rSetting(all);
-        breakS = new Setting("fuFastBreak", this, true);
+        breakS = new Setting("FastBreak", this, true, "FastUseFastBreak");
         OsirisMod.getInstance().settingsManager.rSetting(breakS);
     }
 

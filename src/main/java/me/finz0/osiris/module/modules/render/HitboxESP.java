@@ -15,19 +15,19 @@ import java.awt.*;
 public class HitboxESP extends Module {
     public HitboxESP() {
         super("HitboxESP", Category.RENDER);
-        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("hiePlayers", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("hiePassive", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(mobs = new Setting("hieMobs", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(exp = new Setting("hieXpBottles", this, false));
-        rSetting(orbs = new Setting("hieXpOrbs", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(epearls = new Setting("hieEpearls", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("hieCrystals", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("hieItems", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("hieRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(r = new Setting("hieRed", this, 255, 1, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(g = new Setting("hieGreen", this, 255, 1, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(b = new Setting("hieBlue", this, 255, 1, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(a = new Setting("hieAlpha", this, 50, 1, 255, true));
+        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("Players", this, false, "HitBoxEspPlayers"));
+        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("Passive", this, false, "HitBoxEspPassive"));
+        OsirisMod.getInstance().settingsManager.rSetting(mobs = new Setting("Mobs", this, false, "HitBoxEspMobs"));
+        OsirisMod.getInstance().settingsManager.rSetting(exp = new Setting("XpBottles", this, false, "HitBoxEspXpBottles"));
+        rSetting(orbs = new Setting("XpOrbs", this, false, "HitBoxEspXpOrbs"));
+        OsirisMod.getInstance().settingsManager.rSetting(epearls = new Setting("Epearls", this, false, "HitBoxEspEpearls"));
+        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("Crystals", this, false, "HitBoxEspCrystals"));
+        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("Items", this, false, "HitBoxEspItems"));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "HitBoxEspRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(r = new Setting("Red", this, 255, 1, 255, true, "HitBoxEspRed"));
+        OsirisMod.getInstance().settingsManager.rSetting(g = new Setting("Green", this, 255, 1, 255, true, "HitBoxEspGreen"));
+        OsirisMod.getInstance().settingsManager.rSetting(b = new Setting("Blue", this, 255, 1, 255, true, "HitBoxEspBlue"));
+        OsirisMod.getInstance().settingsManager.rSetting(a = new Setting("Alpha", this, 50, 1, 255, true, "HitBoxEspAlpha"));
     }
 
     Setting players;

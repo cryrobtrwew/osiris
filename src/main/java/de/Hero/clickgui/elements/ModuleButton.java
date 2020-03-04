@@ -77,9 +77,9 @@ public class ModuleButton {
 		temp = ColorUtil.getClickGUIColor();
 
 		int color = new Color(temp.getRed(), temp.getGreen(), temp.getBlue(), 150).getRGB();
-		if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("f0nzi"))
+		if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("f0nzi"))
 			color = 0xbb606060;
-		if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("Windows"))
+		if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("Windows"))
 			color = 0xffffffff;
 		
 		/*
@@ -91,9 +91,9 @@ public class ModuleButton {
 		if (mod.isEnabled()) {
 			Gui.drawRect((int)x - 2, (int)y, (int)x + (int)width + 2, (int)y + (int)height + 1, color);
 			textcolor = 0xffefefef;
-			if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("f0nzi"))
+			if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("f0nzi"))
 				textcolor = ColorUtil.getClickGUIColor().getRGB();
-			if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("Windows"))
+			if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("Windows"))
 				textcolor = Color.BLUE.getRGB();
 		}
 		
@@ -107,7 +107,7 @@ public class ModuleButton {
 		/*
 		 * Den Namen des Modules in die Mitte (x und y) rendern
 		 */
-		if(OsirisMod.getInstance().settingsManager.getSettingByName("Design").getValString().equalsIgnoreCase("Windows")) {
+		if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiDesign").getValString().equalsIgnoreCase("Windows")) {
 			if(!mod.isEnabled())
 				FontUtil.drawTotalCenteredString(mod.getName(), x + width / 2, y + 1 + height / 2, Color.BLACK.getRGB());
 			else

@@ -25,10 +25,10 @@ public class BetterChat extends Module {
     Setting friendHighlight;
 
     public void setup(){
-        clearBkg = new Setting("Clear", this, true);
+        clearBkg = new Setting("Clear", this, true, "BetterChatClear");
         OsirisMod.getInstance().settingsManager.rSetting(clearBkg);
-        OsirisMod.getInstance().settingsManager.rSetting(nameHighlight = new Setting("NameHighlight", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(friendHighlight = new Setting("FriendHighlight", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(nameHighlight = new Setting("NameHighlight", this, false, "BetterChatNameHighlight"));
+        OsirisMod.getInstance().settingsManager.rSetting(friendHighlight = new Setting("FriendHighlight", this, false, "BetterChatFriendHighlight"));
     }
 
     @EventHandler

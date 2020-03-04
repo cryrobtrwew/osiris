@@ -20,7 +20,7 @@ public class Spammer extends Module {
     int i = -1;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("SpammerDelay", this, 5, 1, 100, true));
+        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("Delay", this, 5, 1, 100, true, "SpammerDelay"));
     }
 
     public void onUpdate(){

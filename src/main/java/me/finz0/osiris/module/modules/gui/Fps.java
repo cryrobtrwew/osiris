@@ -16,9 +16,9 @@ public class Fps extends Module {
     public Setting color;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("fpsRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("fpsCFont", this, false));
-        rSetting(color = new Setting("fpsColor", this, Color.WHITE));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "FpsRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "FpsCustomFont"));
+        rSetting(color = new Setting("Color", this, Color.WHITE, "FpsColor"));
     }
 
     public void onEnable(){

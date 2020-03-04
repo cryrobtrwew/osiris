@@ -24,13 +24,13 @@ public class NotificationsHud extends Module {
     static List<TextComponentString> list = new ArrayList<>();
 
     public void setup(){
-        x = new Setting("notX", this, 2, 0, 1000, true);
-        y = new Setting("notY", this, 12, 0, 1000, true);
+        x = new Setting("X", this, 2, 0, 1000, true, "HudNotificationsX");
+        y = new Setting("Y", this, 12, 0, 1000, true, "HudNotificationsY");
         OsirisMod.getInstance().settingsManager.rSetting(x);
         OsirisMod.getInstance().settingsManager.rSetting(y);
-        sortUp = new Setting("notSortUp", this, true);
+        sortUp = new Setting("SortUp", this, true, "HudNotificationsSortUp");
         OsirisMod.getInstance().settingsManager.rSetting(sortUp);
-        right = new Setting("notAlignRight", this, false);
+        right = new Setting("AlignRight", this, false, "HudNotificationsAlignRight");
         OsirisMod.getInstance().settingsManager.rSetting(right);
     }
 

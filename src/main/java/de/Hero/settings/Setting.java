@@ -14,7 +14,8 @@ import me.finz0.osiris.module.Module;
  */
 public class Setting {
 	
-	private String name;
+	private String displayName;
+	private String id;
 	private Module parent;
 	private String mode;
 	
@@ -31,40 +32,48 @@ public class Setting {
 
 	private Color color;
 
-	public Setting(String name, Module parent, String sval, ArrayList<String> options){
-		this.name = name;
+	public Setting(String displayName, Module parent, String sval, ArrayList<String> options, String id){
+		this.displayName = displayName;
 		this.parent = parent;
 		this.sval = sval;
 		this.options = options;
 		this.mode = "Combo";
+		this.id = id;
 	}
 	
-	public Setting(String name, Module parent, boolean bval){
-		this.name = name;
+	public Setting(String displayName, Module parent, boolean bval, String id){
+		this.displayName = displayName;
 		this.parent = parent;
 		this.bval = bval;
 		this.mode = "Check";
+		this.id = id;
 	}
 	
-	public Setting(String name, Module parent, double dval, double min, double max, boolean onlyint){
-		this.name = name;
+	public Setting(String displayName, Module parent, double dval, double min, double max, boolean onlyint, String id){
+		this.displayName = displayName;
 		this.parent = parent;
 		this.dval = dval;
 		this.min = min;
 		this.max = max;
 		this.onlyint = onlyint;
 		this.mode = "Slider";
+		this.id = id;
 	}
 
-	public Setting(String name, Module parent, Color color){
-		this.name = name;
+	public Setting(String displayName, Module parent, Color color, String id){
+		this.displayName = displayName;
 		this.parent = parent;
 		this.color = color;
 		this.mode = "ColorPicker";
+		this.id = id;
 	}
 	
-	public String getName(){
-		return name;
+	public String getDisplayName(){
+		return displayName;
+	}
+
+	public String getId(){
+		return id;
 	}
 	
 	public Module getParentMod(){

@@ -31,12 +31,12 @@ public class GlowESP extends Module {
     List<Entity> entities;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("gPlayers", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("gPassive", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(monsters = new Setting("gMonsters", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("gItems", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("gCrystals", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(xpBottles = new Setting("gXpBottles", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("Players", this, true, "GlowEspPlayers"));
+        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("Passive", this, false, "GlowEspPassive"));
+        OsirisMod.getInstance().settingsManager.rSetting(monsters = new Setting("Monsters", this, false, "GlowEspMonsters"));
+        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("Items", this, false, "GlowEspItems"));
+        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("Crystals", this, false, "GlowEspCrystals"));
+        OsirisMod.getInstance().settingsManager.rSetting(xpBottles = new Setting("XpBottles", this, false, "GlowEspXpBottles"));
     }
 
     public void onUpdate(){

@@ -26,17 +26,17 @@ public class BlockHighlight extends Module {
     Setting rainbow;
 
     public void setup(){
-        r = new Setting("bhRed", this, 255, 0, 255, true);
+        r = new Setting("Red", this, 255, 0, 255, true, "BlockHighlightRed");
         OsirisMod.getInstance().settingsManager.rSetting(r);
-        g = new Setting("bhGreen", this, 255, 0, 255, true);
+        g = new Setting("Green", this, 255, 0, 255, true, "BlockHighlightGreen");
         OsirisMod.getInstance().settingsManager.rSetting(g);
-        b = new Setting("bhBlue", this, 255, 0, 255, true);
+        b = new Setting("Blue", this, 255, 0, 255, true, "BlockHighlightBlue");
         OsirisMod.getInstance().settingsManager.rSetting(b);
-        a = new Setting("bhAlpha", this, 255, 0, 255, true);
+        a = new Setting("Alpha", this, 255, 0, 255, true, "BlockHighlightAlpha");
         OsirisMod.getInstance().settingsManager.rSetting(a);
-        w = new Setting("bhWidth", this, 1, 1, 10, true);
+        w = new Setting("Width", this, 1, 1, 10, true, "BlockHighlightWidth");
         OsirisMod.getInstance().settingsManager.rSetting(w);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("bhRainbow", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "BlockHighlightRainbow"));
     }
 
     public void onWorldRender(RenderEvent event){

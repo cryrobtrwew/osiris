@@ -37,9 +37,9 @@ public class SmartOffhand extends Module {
         ArrayList<String> items = new ArrayList<>();
         items.add("Crystal");
         items.add("Gapple");
-        OsirisMod.getInstance().settingsManager.rSetting(health = new Setting("soHealth", this, 10, 1, 40, true));
-        OsirisMod.getInstance().settingsManager.rSetting(crystalCheck = new Setting("soCrystalCheck", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(itemSetting = new Setting("soItem", this, "Crystal", items));
+        OsirisMod.getInstance().settingsManager.rSetting(health = new Setting("Health", this, 10, 1, 40, true, "SmartOffhandHealth"));
+        OsirisMod.getInstance().settingsManager.rSetting(crystalCheck = new Setting("CrystalCheck", this, false, "SmartOffhandCrystalCheck"));
+        OsirisMod.getInstance().settingsManager.rSetting(itemSetting = new Setting("Item", this, "Crystal", items, "SmartOffhandItem"));
     }
 
     public void onEnable(){

@@ -40,13 +40,23 @@ public class SettingsManager {
 		return out;
 	}
 	
-	public Setting getSettingByName(String name){
+	public Setting getSettingByDisplayName(String name){
 		for(Setting set : getSettings()){
-			if(set.getName().equalsIgnoreCase(name)){
+			if(set.getDisplayName().equalsIgnoreCase(name)){
 				return set;
 			}
 		}
 		System.err.println("[Osiris] Error Setting NOT found: '" + name +"'!");
+		return null;
+	}
+
+	public Setting getSettingByID(String id){
+		for(Setting s : getSettings()){
+			if(s.getId().equalsIgnoreCase(id)){
+				return s;
+			}
+		}
+		System.err.println("[Osiris] Error Setting NOT found: '" + id +"'!");
 		return null;
 	}
 

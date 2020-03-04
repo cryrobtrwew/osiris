@@ -9,10 +9,10 @@ import java.text.DecimalFormat;
 public class ClinetTimer extends Module {
     public ClinetTimer() {
         super("ClinetTimer", Category.MISC, "Clinet's TimerSwitch");
-        OsirisMod.getInstance().settingsManager.rSetting(speedUsual = new Setting("ctSpeed", this, 4.2, 1, 10, false));
-        OsirisMod.getInstance().settingsManager.rSetting(fastUsual = new Setting("ctFastSpeed", this, 10, 1, 1000, false));
-        OsirisMod.getInstance().settingsManager.rSetting(tickToFast = new Setting("ctTickToFast", this, 4, 0, 20, false));
-        OsirisMod.getInstance().settingsManager.rSetting(tickToNoFast = new Setting("ctTickToDisableFast", this, 7, 0, 20, false));
+        OsirisMod.getInstance().settingsManager.rSetting(speedUsual = new Setting("Speed", this, 4.2, 1, 10, false, "ClinetTimerSpeed"));
+        OsirisMod.getInstance().settingsManager.rSetting(fastUsual = new Setting("FastSpeed", this, 10, 1, 1000, false, "ClinetTimerFastSpeed"));
+        OsirisMod.getInstance().settingsManager.rSetting(tickToFast = new Setting("TickToFast", this, 4, 0, 20, false, "ClinetTimerTickToFast"));
+        OsirisMod.getInstance().settingsManager.rSetting(tickToNoFast = new Setting("TickToDisableFast", this, 7, 0, 20, false, "ClinetTimerTickToNoFast"));
     }
 
     int tickWait = 0;

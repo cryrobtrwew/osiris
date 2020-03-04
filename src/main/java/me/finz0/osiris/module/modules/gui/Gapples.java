@@ -24,15 +24,15 @@ public class Gapples extends Module {
         modes.add("Short");
         modes.add("Full");
         modes.add("Item");
-        red = new Setting("GapplesRed", this, 255, 0, 255, true);
-        green = new Setting("GapplesGreen", this, 255, 0, 255, true);
-        blue = new Setting("GapplesBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "GapplesRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "GapplesGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "GapplesBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("gapRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("gapCFont", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("gapText", this, "Short", modes));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "GapplesRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "GapplesCustomFont"));
+        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("Mode", this, "Short", modes, "GapplesMode"));
     }
 
     public void onEnable(){

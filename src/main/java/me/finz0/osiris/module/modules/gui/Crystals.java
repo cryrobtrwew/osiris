@@ -23,15 +23,15 @@ public class Crystals extends Module {
         modes.add("Short");
         modes.add("Full");
         modes.add("Item");
-        red = new Setting("CrystalsRed", this, 255, 0, 255, true);
-        green = new Setting("CrystalsGreen", this, 255, 0, 255, true);
-        blue = new Setting("CrystalsBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "CrystalsRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "CrystalsGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "CrystalsBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("cryRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("cryCFont", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("cryText", this, "Short", modes));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "CrystalsRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "CrystalsCustomFont"));
+        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("Mode", this, "Short", modes, "CrystalsMode"));
     }
 
     public void onEnable(){

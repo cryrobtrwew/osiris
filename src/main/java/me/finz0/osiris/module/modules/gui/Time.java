@@ -17,14 +17,14 @@ public class Time extends Module {
     public Setting customFont;
 
     public void setup(){
-        red = new Setting("TimeRed", this, 255, 0, 255, true);
-        green = new Setting("TimeGreen", this, 255, 0, 255, true);
-        blue = new Setting("TimeBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "TimeRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "TimeGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "TimeBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("timeRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("timeCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "TimeRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "TimeCustomFont"));
     }
 
     public void onEnable(){

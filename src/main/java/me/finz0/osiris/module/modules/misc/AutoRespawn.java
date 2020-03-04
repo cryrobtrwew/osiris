@@ -17,7 +17,7 @@ public class AutoRespawn extends Module {
     Setting coords;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(coords = new Setting("DeathCoords", this, true));
+        OsirisMod.getInstance().settingsManager.rSetting(coords = new Setting("DeathCoords", this, true, "AutoRespawnDeathCoords"));
     }
 
     @EventHandler

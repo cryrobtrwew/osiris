@@ -8,6 +8,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+* @author 086
+*/
 public class CFontRenderer extends CFont {
 
     protected CharData[] boldChars = new CharData[256];

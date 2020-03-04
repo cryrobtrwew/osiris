@@ -20,16 +20,16 @@ public class Watermark extends Module {
     public Setting version;
 
     public void setup(){
-        red = new Setting("MarkRed", this, 255, 0, 255, true);
-        green = new Setting("MarkGreen", this, 255, 0, 255, true);
-        blue = new Setting("MarkBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "GuiWatermarkRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "GuiWatermarkGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "GuiWatermarkBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        rainbow = new Setting("MarkRainbow", this, true);
+        rainbow = new Setting("Rainbow", this, true, "GuiWatermarkRainbow");
         OsirisMod.getInstance().settingsManager.rSetting(rainbow);
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("markCustomFont", this, true));
-        rSetting(version = new Setting("markVersion", this, true));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CustomFont", this, true, "GuiWatermarkCustomFont"));
+        rSetting(version = new Setting("Version", this, true, "GuiWatermarkVersionBoolean"));
     }
 
     public void onEnable(){

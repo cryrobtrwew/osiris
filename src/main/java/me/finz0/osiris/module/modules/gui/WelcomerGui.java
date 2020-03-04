@@ -27,16 +27,16 @@ public class WelcomerGui extends Module {
         messages.add("Welcome2");
         messages.add("Hello1");
         messages.add("Hello2");
-        red = new Setting("welRed", this, 255, 0, 255, true);
-        green = new Setting("welGreen", this, 255, 0, 255, true);
-        blue = new Setting("welBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "GuiWelcomeRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "GuiWelcomeGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "GuiWelcomeBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        rainbow = new Setting("welRainbow", this, true);
+        rainbow = new Setting("Rainbow", this, true, "GuiWelcomeRainbow");
         OsirisMod.getInstance().settingsManager.rSetting(rainbow);
-        OsirisMod.getInstance().settingsManager.rSetting(message = new Setting("welMessage", this, "Welcome1", messages));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("welCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(message = new Setting("Message", this, "Welcome1", messages, "GuiWelcomeMessageMode"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "GuiWelcomeCustomFont"));
     }
 
     public void onEnable(){

@@ -70,12 +70,17 @@ public class DirectionComponent extends Panel {
         EnumFacing enumfacing = entity.getHorizontalFacing();
         String s = "Invalid";
         boolean xz = mod.mode.getValString().equalsIgnoreCase("XZ");
+        boolean nswe = mod.mode.getValString().equalsIgnoreCase("NSWE");
+        ChatFormatting gray = ChatFormatting.GRAY;
+        ChatFormatting reset = ChatFormatting.RESET;
+        String l = ChatFormatting.GRAY + "[" + ChatFormatting.RESET;
+        String r = ChatFormatting.GRAY + "]";
         switch (enumfacing) {
-            case NORTH: s = xz ? "-Z" : "N";break;
-            case SOUTH: s = xz ? "+Z" : "S";break;
-            case WEST: s = xz ? "-X" : "W";break;
-            case EAST: s = xz ? "+X" : "E";
+            case NORTH: s = xz ? l+"-Z"+r : nswe ? l+"N"+r : "North "+l+"-Z"+r; break;
+            case SOUTH: s = xz ? l+"+Z"+r : nswe ? l+"S"+r : "South "+l+"+Z"+r; break;
+            case WEST: s = xz ? l+"-X"+r : nswe ? l+"W"+r : "West "+l+"-X"+r; break;
+            case EAST: s = xz ? l+"+X"+r : nswe ?l+ "E"+r : "East "+l+"+X"+r;
         }
-        direction = ChatFormatting.GRAY + "[" + ChatFormatting.RESET + s + ChatFormatting.GRAY + "]";
+        direction = s;
     }
 }

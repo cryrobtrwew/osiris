@@ -17,7 +17,7 @@ public class ChatSuffix extends Module {
     Setting blue;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(blue = new Setting("csBlue", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(blue = new Setting("Blue", this, false, "ChatSuffixBlue"));
     }
 
     @EventHandler

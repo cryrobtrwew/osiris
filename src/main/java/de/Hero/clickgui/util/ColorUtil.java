@@ -16,9 +16,9 @@ import me.finz0.osiris.util.Rainbow;
 public class ColorUtil {
 	
 	public static Color getClickGUIColor(){
-		if(OsirisMod.getInstance().settingsManager.getSettingByName("GuiRainbow").getValBoolean()) {
+		if(OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiRainbow").getValBoolean())
 			return Rainbow.getColor();
-		}else
-			return new Color((int) OsirisMod.getInstance().settingsManager.getSettingByName("GuiRed").getValDouble(), (int) OsirisMod.getInstance().settingsManager.getSettingByName("GuiGreen").getValDouble(), (int)OsirisMod.getInstance().settingsManager.getSettingByName("GuiBlue").getValDouble());
+		else
+			return new Color((int) OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiRed").getValDouble(), (int) OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiGreen").getValDouble(), (int)OsirisMod.getInstance().settingsManager.getSettingByID("ClickGuiBlue").getValDouble());
 	}
 }

@@ -34,10 +34,10 @@ public class AutoTrap extends Module {
     int blocksPlaced;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("atRotate", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(ec = new Setting("atUseEchests", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(range = new Setting("atRange", this, 5, 0, 10, false));
-        OsirisMod.getInstance().settingsManager.rSetting(bpt = new Setting("atBlocksPerTick", this, 8, 1, 15, true));
+        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("Rotate", this, true, "AutoTrapRotate"));
+        OsirisMod.getInstance().settingsManager.rSetting(ec = new Setting("UseEchests", this, false, "AutoTrapUseEchests"));
+        OsirisMod.getInstance().settingsManager.rSetting(range = new Setting("Range", this, 5, 0, 10, false, "AutoTrapRange"));
+        OsirisMod.getInstance().settingsManager.rSetting(bpt = new Setting("BlocksPerTick", this, 8, 1, 15, true, "AutoTrapBPT"));
     }
 
     public void onUpdate(){

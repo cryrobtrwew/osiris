@@ -24,12 +24,12 @@ public class ClickGuiModule extends Module {
         options.add("JellyLike");
         options.add("f0nzi");
         options.add("Windows");
-        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Design", this, "New", options));
-        OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiRed", this, 255, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiGreen", this, 26, 0, 255, true));
-        OsirisMod.getInstance().settingsManager.rSetting(new Setting("GuiBlue", this, 42, 0, 255, true));
-        rSetting(new Setting("GuiTooltips", this, true));
+        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Design", this, "New", options, "ClickGuiDesign"));
+        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Rainbow", this, false, "ClickGuiRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Red", this, 255, 0, 255, true, "ClickGuiRed"));
+        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Green", this, 26, 0, 255, true, "ClickGuiGreen"));
+        OsirisMod.getInstance().settingsManager.rSetting(new Setting("Blue", this, 42, 0, 255, true, "ClickGuiBlue"));
+        rSetting(new Setting("Tooltips", this, true, "ClickGuiTooltips"));
     }
 
     public void onEnable(){

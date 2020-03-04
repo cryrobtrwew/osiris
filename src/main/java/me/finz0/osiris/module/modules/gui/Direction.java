@@ -12,10 +12,11 @@ public class Direction extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("XZ");
         modes.add("NSWE");
-        rSetting(mode = new Setting("dirMode", this, "XZ", modes));
-        rSetting(rainbow = new Setting("dirRainbow", this, false));
-        rSetting(customFont = new Setting("dirCFont", this, false));
-        rSetting(color = new Setting("dirColor", this, Color.WHITE));
+        modes.add("Both");
+        rSetting(mode = new Setting("Mode", this, "XZ", modes, "DirectionMode"));
+        rSetting(rainbow = new Setting("Rainbow", this, false, "DirectionRainbow"));
+        rSetting(customFont = new Setting("CFont", this, false, "DirectionCustomFont"));
+        rSetting(color = new Setting("Color", this, Color.WHITE, "DirectionColor"));
     }
 
     public Setting color;

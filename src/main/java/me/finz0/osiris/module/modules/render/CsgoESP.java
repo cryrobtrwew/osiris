@@ -31,13 +31,13 @@ public class CsgoESP extends Module {
     Setting orbs;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("Players", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("Passive", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(monsters = new Setting("Monsters", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("Items", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("Crystals", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(xpBottles = new Setting("XpBottles", this, false));
-        rSetting(orbs = new Setting("ceXpOrbs", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(players = new Setting("Players", this, true, "CsGoEsPlayers"));
+        OsirisMod.getInstance().settingsManager.rSetting(passive = new Setting("Passive", this, false, "CsGoEspPassive"));
+        OsirisMod.getInstance().settingsManager.rSetting(monsters = new Setting("Monsters", this, false, "CsGoEspMonsters"));
+        OsirisMod.getInstance().settingsManager.rSetting(items = new Setting("Items", this, false, "CsGoEspItems"));
+        OsirisMod.getInstance().settingsManager.rSetting(crystals = new Setting("Crystals", this, false, "CsGoEspCrystals"));
+        OsirisMod.getInstance().settingsManager.rSetting(xpBottles = new Setting("XpBottles", this, false, "CsGoEspXpBottles"));
+        rSetting(orbs = new Setting("XpOrbs", this, false, "CsGoEspXpOrbs"));
     }
 
     public void onWorldRender(RenderEvent event) {

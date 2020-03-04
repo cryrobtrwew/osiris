@@ -43,24 +43,24 @@ public class HoleESP extends Module {
     };
 
     public void setup(){
-        rangeS = new Setting("heRange", this, 8, 0, 20, true);
+        rangeS = new Setting("Range", this, 8, 0, 20, true, "HoleEspRange");
         OsirisMod.getInstance().settingsManager.rSetting(rangeS);
-        r = new Setting("heRed", this, 255, 0, 255, true);
+        r = new Setting("Red", this, 255, 0, 255, true, "HoleEspRed");
         OsirisMod.getInstance().settingsManager.rSetting(r);
-        g = new Setting("heGreen", this, 255, 0, 255, true);
+        g = new Setting("Green", this, 255, 0, 255, true, "HoleEspGreen");
         OsirisMod.getInstance().settingsManager.rSetting(g);
-        b = new Setting("heBlue", this, 255, 0, 255, true);
+        b = new Setting("Blue", this, 255, 0, 255, true, "HoleEspBlue");
         OsirisMod.getInstance().settingsManager.rSetting(b);
-        a = new Setting("heAlpha", this, 50, 0, 255, true);
+        a = new Setting("Alpha", this, 50, 0, 255, true, "HoleEspAlpha");
         OsirisMod.getInstance().settingsManager.rSetting(a);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("heRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(width = new Setting("heLineWidth", this, 3, 1, 10, true));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "HoleEspRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(width = new Setting("LineWidth", this, 3, 1, 10, true, "HoleEspLineWidth"));
 
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Box");
         modes.add("Outline");
 
-        mode = new Setting("heMode", this, "Box", modes);
+        mode = new Setting("Mode", this, "Box", modes, "HoleEspMode");
         OsirisMod.getInstance().settingsManager.rSetting(mode);
 
         ArrayList<String> renderModes = new ArrayList<>();
@@ -68,7 +68,7 @@ public class HoleESP extends Module {
         renderModes.add("HalfBox");
         renderModes.add("Plane");
 
-        renderMode = new Setting("heRenderMode", this, "Box", renderModes);
+        renderMode = new Setting("RenderMode", this, "Box", renderModes, "HoleEspRenderMode");
         OsirisMod.getInstance().settingsManager.rSetting(renderMode);
 
     }

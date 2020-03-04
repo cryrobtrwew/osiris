@@ -835,7 +835,7 @@ public class ConfigUtils {
             while(var3.hasNext()) {
                 i = (Setting)var3.next();
                 if (i.isSlider()) {
-                    out.write(i.getName() + ":" + i.getValDouble() + ":" + i.getParentMod().getName() + "\r\n");
+                    out.write(i.getId() + ":" + i.getValDouble() + ":" + i.getParentMod().getName() + "\r\n");
                 }
             }
 
@@ -851,7 +851,7 @@ public class ConfigUtils {
             while(var3.hasNext()) {
                 i = (Setting)var3.next();
                 if (i.isCheck()) {
-                    out.write(i.getName() + ":" + i.getValBoolean() + ":" + i.getParentMod().getName() + "\r\n");
+                    out.write(i.getId() + ":" + i.getValBoolean() + ":" + i.getParentMod().getName() + "\r\n");
                 }
             }
 
@@ -867,7 +867,7 @@ public class ConfigUtils {
             while(var3.hasNext()) {
                 i = (Setting)var3.next();
                 if (i.isCombo()) {
-                    out.write(i.getName() + ":" + i.getValString() + ":" + i.getParentMod().getName() + "\r\n");
+                    out.write(i.getId() + ":" + i.getValString() + ":" + i.getParentMod().getName() + "\r\n");
                 }
             }
 
@@ -883,7 +883,7 @@ public class ConfigUtils {
             while(var3.hasNext()) {
                 i = (Setting)var3.next();
                 if (i.isColorPicker()) {
-                    out.write(i.getName() + ":" + i.getValColor().getRGB() + ":" + i.getParentMod().getName() + "\r\n");
+                    out.write(i.getId() + ":" + i.getValColor().getRGB() + ":" + i.getParentMod().getName() + "\r\n");
                 }
             }
 
@@ -918,7 +918,7 @@ public class ConfigUtils {
                 m = curLine.split(":")[2];
                 for(Module mm : OsirisMod.getInstance().moduleManager.getModules()) {
                     if (mm != null && mm.getName().equalsIgnoreCase(m)) {
-                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
+                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByID(name);
                         mod.setValDouble(Double.parseDouble(isOn));
                     }
                 }
@@ -943,7 +943,7 @@ public class ConfigUtils {
                 m = curLine.split(":")[2];
                 for(Module mm : OsirisMod.getInstance().moduleManager.getModules()) {
                     if (mm != null && mm.getName().equalsIgnoreCase(m)) {
-                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
+                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByID(name);
                         mod.setValColor(new Color(color));
                     }
                 }
@@ -968,7 +968,7 @@ public class ConfigUtils {
                 m = curLine.split(":")[2];
                 for(Module mm : OsirisMod.getInstance().moduleManager.getModules()) {
                     if (mm != null && mm.getName().equalsIgnoreCase(m)) {
-                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
+                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByID(name);
                         mod.setValBoolean(Boolean.parseBoolean(isOn));
                     }
                 }
@@ -993,7 +993,7 @@ public class ConfigUtils {
                 m = curLine.split(":")[2];
                 for(Module mm : OsirisMod.getInstance().moduleManager.getModules()) {
                     if (mm != null && mm.getName().equalsIgnoreCase(m)) {
-                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByName(name);
+                        mod = me.finz0.osiris.OsirisMod.getInstance().settingsManager.getSettingByID(name);
                         mod.setValString(isOn);
                     }
                 }

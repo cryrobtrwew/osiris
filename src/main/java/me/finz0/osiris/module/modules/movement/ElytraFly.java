@@ -13,7 +13,7 @@ public class ElytraFly extends Module {
     Setting speed;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(speed = new Setting("Speed", this, 1.8, 0, 100, false));
+        OsirisMod.getInstance().settingsManager.rSetting(speed = new Setting("Speed", this, 1.8, 0, 100, false, "ElytraFlySpeed"));
     }
 
     public void onUpdate(){

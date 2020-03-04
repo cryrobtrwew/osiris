@@ -29,10 +29,10 @@ public class ChatTimeStamps extends Module {
             colors.add(cf.getName());
         }
 
-        rSetting(format = new Setting("ctsFormat", this, "H24:M", formats));
-        rSetting(color = new Setting("ctsColor", this, ChatFormatting.GRAY.getName(), colors));
-        rSetting(decoration = new Setting("ctsDeco", this, "[ ]", deco));
-        rSetting(space = new Setting("ctsSpace", this, false));
+        rSetting(format = new Setting("Format", this, "H24:M", formats, "ChatTimeStampsFormat"));
+        rSetting(color = new Setting("Color", this, ChatFormatting.GRAY.getName(), colors, "ChatTimeStampsColor"));
+        rSetting(decoration = new Setting("Deco", this, "[ ]", deco, "ChatTimeStampsDeco"));
+        rSetting(space = new Setting("Space", this, false, "ChatTimeStampsSpace"));
     }
 
     Setting format;

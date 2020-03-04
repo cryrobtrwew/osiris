@@ -89,49 +89,49 @@ public class AutoCrystal extends Module {
 
 
     public void setup() {
-        explode = new Setting("caHit", this, true);
+        explode = new Setting("Hit", this, true, "AutoCrystalHit");
         OsirisMod.getInstance().settingsManager.rSetting(explode);
-        waitTick = new Setting("caTickDelay", this, 1, 0, 20.0, true);
+        waitTick = new Setting("TickDelay", this, 1, 0, 20.0, true, "AutoCrystalTickDelay");
         OsirisMod.getInstance().settingsManager.rSetting(waitTick);
-        range = new Setting("caHitRange", this, 5.0, 0.0, 10.0, false);
+        range = new Setting("HitRange", this, 5.0, 0.0, 10.0, false, "AutoCrystalHitRange");
         OsirisMod.getInstance().settingsManager.rSetting(range);
-        walls = new Setting("caWallsRange", this, 3.5, 0.0, 10.0, false);
+        walls = new Setting("WallsRange", this, 3.5, 0.0, 10.0, false, "AutoCrystalWallsRange");
         OsirisMod.getInstance().settingsManager.rSetting(walls);
-        antiWeakness = new Setting("caAntiWeakness", this, true);
+        antiWeakness = new Setting("AntiWeakness", this, true, "AutoCrystalAntiWeakness");
         OsirisMod.getInstance().settingsManager.rSetting(antiWeakness);
-        nodesync = new Setting("caNoDesync", this, true);
+        nodesync = new Setting("AntiDesync", this, true, "AutoCrystalAntiDesync");
         OsirisMod.getInstance().settingsManager.rSetting(nodesync);
 
-        place = new Setting("caPlace", this, true);
+        place = new Setting("Place", this, true, "AutoCrystalPlace");
         OsirisMod.getInstance().settingsManager.rSetting(place);
-        autoSwitch = new Setting("caAutoSwitch", this, true);
+        autoSwitch = new Setting("AutoSwitch", this, true, "AutoCrystalAutoSwitch");
         OsirisMod.getInstance().settingsManager.rSetting(autoSwitch);
-        OsirisMod.getInstance().settingsManager.rSetting(noGappleSwitch = new Setting("caNoGapSwitch", this, false));
-        placeRange = new Setting("caPlaceRange", this, 5.0, 0.0, 10.0, false);
+        OsirisMod.getInstance().settingsManager.rSetting(noGappleSwitch = new Setting("NoGapSwitch", this, false, "AutoCrystalNoGapSwitch"));
+        placeRange = new Setting("PlaceRange", this, 5.0, 0.0, 10.0, false, "AutoCrystalPlaceRange");
         OsirisMod.getInstance().settingsManager.rSetting(placeRange);
-        minDmg = new Setting("caMinDamage", this, 5.0, 0.0, 40.0, false);
+        minDmg = new Setting("MinDamage", this, 5.0, 0.0, 40.0, false, "AutoCrystalMinDamage");
         OsirisMod.getInstance().settingsManager.rSetting(minDmg);
-        facePlace = new Setting("caFaceplaceHP", this, 6.0, 0.0, 40.0, false);
+        facePlace = new Setting("FaceplaceHP", this, 6.0, 0.0, 40.0, false, "AutoCrystalFaceplaceHP");
         OsirisMod.getInstance().settingsManager.rSetting(facePlace);
-        raytrace = new Setting("caRaytrace", this, false);
+        raytrace = new Setting("Raytrace", this, false, "AutoCrystalRaytrace");
         OsirisMod.getInstance().settingsManager.rSetting(raytrace);
-        rotate = new Setting("caRotate", this, true);
+        rotate = new Setting("Rotate", this, true, "AutoCrystalRotate");
         OsirisMod.getInstance().settingsManager.rSetting(rotate);
-        spoofRotations = new Setting("caSpoofAngles", this, true);
+        spoofRotations = new Setting("SpoofAngles", this, true, "AutoCrystalSpoofAngles");
         OsirisMod.getInstance().settingsManager.rSetting(spoofRotations);
-        OsirisMod.getInstance().settingsManager.rSetting(maxSelfDmg = new Setting("caMaxSelfDmg", this, 10, 0, 36, false));
-        chat = new Setting("caToggleMsgs", this, true);
+        OsirisMod.getInstance().settingsManager.rSetting(maxSelfDmg = new Setting("MaxSelfDmg", this, 10, 0, 36, false, "AutoCrystalMaxSelfDamage"));
+        chat = new Setting("ToggleMsgs", this, true, "AutoCrystalToggleMessages");
         OsirisMod.getInstance().settingsManager.rSetting(chat);
 
-        rainbow = new Setting("caEspRainbow", this, false);
+        rainbow = new Setting("EspRainbow", this, false, "AutoCrystalEspRainbow");
         OsirisMod.getInstance().settingsManager.rSetting(rainbow);
-        espR = new Setting("caEspRed", this, 200, 0, 255, true);
+        espR = new Setting("EspRed", this, 200, 0, 255, true, "AutoCrystalEspRed");
         OsirisMod.getInstance().settingsManager.rSetting(espR);
-        espG = new Setting("caEspGreen", this, 50, 0, 255, true);
+        espG = new Setting("EspGreen", this, 50, 0, 255, true, "AutoCrystalEspGreen");
         OsirisMod.getInstance().settingsManager.rSetting(espG);
-        espB = new Setting("caEspBlue", this, 200, 0, 255, true);
+        espB = new Setting("EspBlue", this, 200, 0, 255, true, "AutoCrystalEspBlue");
         OsirisMod.getInstance().settingsManager.rSetting(espB);
-        espA = new Setting("caEspAlpha", this, 50, 0, 255, true);
+        espA = new Setting("EspAlpha", this, 50, 0, 255, true, "AutoCrystalEspAlpha");
         OsirisMod.getInstance().settingsManager.rSetting(espA);
 
         ArrayList<String> renderModes = new ArrayList<>();
@@ -139,7 +139,7 @@ public class AutoCrystal extends Module {
         renderModes.add("HalfBox");
         renderModes.add("Plane");
 
-        renderMode = new Setting("caRenderMode", this, "Box", renderModes);
+        renderMode = new Setting("EspRenderMode", this, "Box", renderModes, "AutoCrystalEspRenderMode");
         OsirisMod.getInstance().settingsManager.rSetting(renderMode);
 
     }

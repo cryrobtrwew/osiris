@@ -38,9 +38,9 @@ public class Surround extends Module {
     Setting rotate;
 
     public void setup(){
-        sneak = new Setting("SneakOnly", this, false);
+        sneak = new Setting("SneakOnly", this, false, "SurroundSneakOnly");
         OsirisMod.getInstance().settingsManager.rSetting(sneak);
-        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("suRotate", this, true));
+        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("Rotate", this, true, "SurroundRotate"));
     }
 
     public static boolean hasNeighbour(BlockPos blockPos) {

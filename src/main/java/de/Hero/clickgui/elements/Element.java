@@ -23,6 +23,7 @@ public class Element {
 	public double height;
 	
 	public String setstrg;
+	public String setId;
 	
 	public boolean comboextended;
 
@@ -46,7 +47,8 @@ public class Element {
 		 * Title der Box bestimmen und falls n�tig die Breite der CheckBox
 		 * erweitern
 		 */
-		String sname = set.getName();
+		String sname = set.getDisplayName();
+		setId = set.getId();
 		if(set.isCheck()){
 			setstrg = sname;
 			double textx = x + width - FontUtil.getStringWidth(setstrg);

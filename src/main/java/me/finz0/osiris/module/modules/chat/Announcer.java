@@ -61,15 +61,15 @@ public class Announcer extends Module {
     public static String guiMessage = "I just opened my ClickGUI thanks to Osiris!";
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(clientSide = new Setting("anClientSide", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(walk = new Setting("anWalk", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(place = new Setting("anBlockPlace", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(jump = new Setting("anJump", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(breaking = new Setting("anBlockBreak", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(attack = new Setting("anAttackEntity", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(eat = new Setting("anEat", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(clickGui = new Setting("anClickGui", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("anDelayMultiplier", this, 1, 1, 20, true));
+        OsirisMod.getInstance().settingsManager.rSetting(clientSide = new Setting("ClientSide", this, true, "AnnouncerClientSide"));
+        OsirisMod.getInstance().settingsManager.rSetting(walk = new Setting("Walk", this, true, "AnnouncerWalk"));
+        OsirisMod.getInstance().settingsManager.rSetting(place = new Setting("BlockPlace", this, false, "AnnouncerBlockPlace"));
+        OsirisMod.getInstance().settingsManager.rSetting(jump = new Setting("Jump", this, false, "AnnouncerJump"));
+        OsirisMod.getInstance().settingsManager.rSetting(breaking = new Setting("BlockBreak", this, false, "AnnouncerBlockBreak"));
+        OsirisMod.getInstance().settingsManager.rSetting(attack = new Setting("AttackEntity", this, false, "AnnouncerAttackEntity"));
+        OsirisMod.getInstance().settingsManager.rSetting(eat = new Setting("Eat", this, false, "AnnouncerEat"));
+        OsirisMod.getInstance().settingsManager.rSetting(clickGui = new Setting("ClickGui", this, false, "AnnouncerClickGui"));
+        OsirisMod.getInstance().settingsManager.rSetting(delay = new Setting("DelayMultiplier", this, 1, 1, 20, true, "AnnouncerDelayMultiplier"));
     }
 
 

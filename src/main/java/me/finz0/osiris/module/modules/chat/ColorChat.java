@@ -22,7 +22,7 @@ public class ColorChat extends Module {
         ArrayList<String> modes = new ArrayList<>();
         modes.add("Green");
         modes.add("Blue");
-        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("ccColor", this, "Green", modes));
+        OsirisMod.getInstance().settingsManager.rSetting(mode = new Setting("Color", this, "Green", modes, "ColorChatMode"));
     }
 
     @EventHandler
@@ -45,5 +45,9 @@ public class ColorChat extends Module {
 
     public void onDisable(){
         OsirisMod.EVENT_BUS.unsubscribe(this);
+    }
+
+    public String getHudInfo(){
+        return mode.getValString().toUpperCase();
     }
 }

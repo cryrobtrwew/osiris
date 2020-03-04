@@ -42,12 +42,12 @@ public class HoleFill extends Module {
     private int waitCounter;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(range = new Setting("hfRange", this, 5, 0, 10, false));
-        OsirisMod.getInstance().settingsManager.rSetting(yRange = new Setting("hfRangeY", this, 2, 0, 10, false));
-        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("hfRotate", this, true));
-        OsirisMod.getInstance().settingsManager.rSetting(waitTick = new Setting("hfTickDelay", this, 1, 0, 20, true));
-        OsirisMod.getInstance().settingsManager.rSetting(ec = new Setting("hfUseEC", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(chat = new Setting("hfChat", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(range = new Setting("Range", this, 5, 0, 10, false, "HoleFillRange"));
+        OsirisMod.getInstance().settingsManager.rSetting(yRange = new Setting("RangeY", this, 2, 0, 10, false, "HoleFillRangeY"));
+        OsirisMod.getInstance().settingsManager.rSetting(rotate = new Setting("Rotate", this, true, "HoleFillRotate"));
+        OsirisMod.getInstance().settingsManager.rSetting(waitTick = new Setting("TickDelay", this, 1, 0, 20, true, "HoleFillTickDelay"));
+        OsirisMod.getInstance().settingsManager.rSetting(ec = new Setting("UseEC", this, false, "HoleFillUseEC"));
+        OsirisMod.getInstance().settingsManager.rSetting(chat = new Setting("Chat", this, false, "HoleFillChat"));
     }
 
     public void onUpdate() {

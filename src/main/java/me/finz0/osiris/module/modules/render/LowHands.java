@@ -14,7 +14,7 @@ public class LowHands extends Module {
     ItemRenderer itemRenderer = mc.entityRenderer.itemRenderer;
 
     public void setup(){
-        off = new Setting("Height", this, 0.5, 0, 1, false);
+        off = new Setting("Height", this, 0.5, 0, 1, false, "LowOffhandHeight");
         OsirisMod.getInstance().settingsManager.rSetting(off);
     }
 

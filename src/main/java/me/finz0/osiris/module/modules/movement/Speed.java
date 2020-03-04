@@ -16,7 +16,7 @@ public class Speed extends Module {
     Setting jump;
 
     public void setup(){
-        OsirisMod.getInstance().settingsManager.rSetting(jump = new Setting("Jump", this, true));
+        OsirisMod.getInstance().settingsManager.rSetting(jump = new Setting("Jump", this, true, "StrafeJump"));
     }
 
 

@@ -30,22 +30,22 @@ public class ModList extends Module {
     Color c;
 
     public void setup(){
-        red = new Setting("ModListRed", this, 255, 0, 255, true);
-        green = new Setting("ModListGreen", this, 255, 0, 255, true);
-        blue = new Setting("ModListBlue", this, 255, 0, 255, true);
+        red = new Setting("Red", this, 255, 0, 255, true, "ModListRed");
+        green = new Setting("Green", this, 255, 0, 255, true, "ModListGreen");
+        blue = new Setting("Blue", this, 255, 0, 255, true, "ModListBlue");
         OsirisMod.getInstance().settingsManager.rSetting(red);
         OsirisMod.getInstance().settingsManager.rSetting(green);
         OsirisMod.getInstance().settingsManager.rSetting(blue);
-        x = new Setting("ModListX", this, 2, 0, 1000, true);
-        y = new Setting("ModListY", this, 12, 0, 1000, true);
+        x = new Setting("X", this, 2, 0, 1000, true, "ModListX");
+        y = new Setting("Y", this, 12, 0, 1000, true, "ModListY");
         OsirisMod.getInstance().settingsManager.rSetting(x);
         OsirisMod.getInstance().settingsManager.rSetting(y);
-        sortUp = new Setting("SortUp", this, true);
+        sortUp = new Setting("SortUp", this, true, "ModListSortUp");
         OsirisMod.getInstance().settingsManager.rSetting(sortUp);
-        right = new Setting("AlignRight", this, false);
+        right = new Setting("AlignRight", this, false, "ModListAlignRight");
         OsirisMod.getInstance().settingsManager.rSetting(right);
-        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("modlistRainbow", this, false));
-        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("modlistCFont", this, false));
+        OsirisMod.getInstance().settingsManager.rSetting(rainbow = new Setting("Rainbow", this, false, "ModListRainbow"));
+        OsirisMod.getInstance().settingsManager.rSetting(customFont = new Setting("CFont", this, false, "ModListCustomFont"));
     }
 
     public void onRender(){
