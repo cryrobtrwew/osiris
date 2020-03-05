@@ -64,12 +64,12 @@ public class WelcomerComponent extends Panel {
         text = mod.rainbow.getValBoolean() ? Rainbow.getColor() : color;
         font = mod.customFont.getValBoolean();
         if(mod.message.getValString().equalsIgnoreCase("Welcome1"))
-            msg = "Welcome, " + mc.player.getName();
+            msg = "Welcome " + mc.player.getName();
         if(mod.message.getValString().equalsIgnoreCase("Welcome2"))
-            msg = "Welcome, " + mc.player.getName() + " ^_^";
+            msg = "Welcome " + mc.player.getName() + " :^)";
         if(mod.message.getValString().equalsIgnoreCase("Hello1"))
             msg = "Hello " + mc.player.getName();
         if(mod.message.getValString().equalsIgnoreCase("Hello2"))
-            msg = "Hello " + mc.player.getName() + " ^_^";
+            msg = "Hello " + mc.player.getName() + " :^)";
     }
 }
