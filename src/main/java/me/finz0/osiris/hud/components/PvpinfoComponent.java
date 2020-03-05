@@ -9,6 +9,8 @@ import me.finz0.osiris.module.ModuleManager;
 import me.finz0.osiris.module.modules.gui.PvpInfo;
 import me.finz0.osiris.util.Rainbow;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 import java.awt.*;
 
@@ -62,15 +64,15 @@ public class PvpinfoComponent extends Panel {
             } else{
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("HoleFill")){
+            if(ModuleManager.isModuleEnabled("Ping")){
                 drawText(" ", (int)x, (int)startY + 20, on.getRGB());
             } else{
                 drawText(" ", (int)x, (int)startY + 20, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("KillAura")){
-                drawText(" ", (int)x, (int)startY + 30, on.getRGB());
+            if(ModuleManager.isModuleEnabled("Totems")){
+                drawText(totems, (int)x, (int)startY + 30, on.getRGB());
             } else{
-                drawText(" ", (int)x, (int)startY + 30, off.getRGB());
+                drawText(totems, (int)x, (int)startY + 30, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
@@ -86,6 +88,13 @@ public class PvpinfoComponent extends Panel {
         on = new Color(mod.onR.getValInt(), mod.onG.getValInt(), mod.onB.getValInt());
         if(mod.offRainbow.getValBoolean()) off = Rainbow.getColor();
         if(mod.onRainbow.getValBoolean()) on = Rainbow.getColor();
+        
+        int totems
+
+        totems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+
+        if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) totems++;
+        
     }
 
     private void drawText(String s, int x, int y, int c){
@@ -104,15 +113,15 @@ public class PvpinfoComponent extends Panel {
             } else{
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("HoleFill")){
+            if(ModuleManager.isModuleEnabled("Ping")){
                 drawText(" ", (int)x, (int)startY + 20, on.getRGB());
             } else{
                 drawText(" ", (int)x, (int)startY + 20, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("KillAura")){
-                drawText(" ", (int)x, (int)startY + 30, on.getRGB());
+            if(ModuleManager.isModuleEnabled("Totems")){
+                drawText(totems, (int)x, (int)startY + 30, on.getRGB());
             } else{
-                drawText(" ", (int)x, (int)startY + 30, off.getRGB());
+                drawText(totems, (int)x, (int)startY + 30, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
