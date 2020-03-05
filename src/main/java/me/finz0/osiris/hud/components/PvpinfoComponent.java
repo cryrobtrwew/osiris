@@ -89,7 +89,7 @@ public class PvpinfoComponent extends Panel {
         if(mod.offRainbow.getValBoolean()) off = Rainbow.getColor();
         if(mod.onRainbow.getValBoolean()) on = Rainbow.getColor();
         
-        int totems
+        int totems;
 
         totems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
 
