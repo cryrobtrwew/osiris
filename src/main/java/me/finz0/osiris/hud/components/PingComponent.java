@@ -33,7 +33,7 @@ public class PingComponent extends Panel {
 
     public void drawHud(){
         doStuff();
-        String ping = mod.getPing() + "ms";
+        String ping = "PING" + mod.getPing();
         if(font) OsirisMod.fontRenderer.drawStringWithShadow(ping, (float)x, (float)y, text.getRGB());
         else mc.fontRenderer.drawStringWithShadow(ping, (float)x, (float)y, text.getRGB());
     }
@@ -41,7 +41,7 @@ public class PingComponent extends Panel {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         doStuff();
-        String ping = mod.getPing() + "ms";
+        String ping = "PING" + mod.getPing();
         double w = mc.fontRenderer.getStringWidth(ping) + 2;
         c = new Color(50, 50, 50, 100);
         if(isHudComponentPinned) c = new Color(ColorUtil.getClickGUIColor().darker().getRed(), ColorUtil.getClickGUIColor().darker().getGreen(), ColorUtil.getClickGUIColor().darker().getBlue(), 100);
