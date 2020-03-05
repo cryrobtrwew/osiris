@@ -92,7 +92,7 @@ public class TotemsComponent extends Panel {
         font = mod.customFont.getValBoolean();
         totems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
         if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) totems++;
-        if(mod.mode.getValString().equalsIgnoreCase("Short")) tot = totems + " TOT";
-        else tot = totems + " Totems";
+        if(mod.mode.getValString().equalsIgnoreCase("Short")) tot = totems + " ";
+        else tot = totems + " ";
     }
 }
