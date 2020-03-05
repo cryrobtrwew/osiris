@@ -35,7 +35,17 @@ public class PvpinfoComponent extends Panel {
         doStuff();
         draw();
     }
-
+    
+    private int getPing(){
+        int p = -1;
+        if(mc.player == null || mc.getConnection() == null || mc.getConnection().getPlayerInfo(mc.player.getName()) == null){
+            p = -1;
+        } else {
+            p = mc.getConnection().getPlayerInfo(mc.player.getName()).getResponseTime();
+        }
+        return p;
+    }
+    
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         doStuff();
@@ -65,14 +75,14 @@ public class PvpinfoComponent extends Panel {
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("Ping")){
-                drawText(" ", (int)x, (int)startY + 20, on.getRGB());
+                drawText(getPing(), (int)x, (int)startY + 30, on.getRGB());
             } else{
-                drawText(" ", (int)x, (int)startY + 20, off.getRGB());
+                drawText(getPing(), (int)x, (int)startY + 30, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("Totems")){
-                drawText(totems, (int)x, (int)startY + 30, on.getRGB());
+                drawText(totems, (int)x, (int)startY + 20, on.getRGB());
             } else{
-                drawText(totems, (int)x, (int)startY + 30, off.getRGB());
+                drawText(totems, (int)x, (int)startY + 20, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
