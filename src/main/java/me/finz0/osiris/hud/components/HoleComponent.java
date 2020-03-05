@@ -18,8 +18,6 @@ import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
 
-//modes: draw obby/bedrock texture for blocks around u | safe / unsafe | obby / bedrock / none
-//TODO
 public class HoleComponent extends Panel {
     public HoleComponent(double ix, double iy, ClickGUI parent) {
         super("Hole", ix, iy, 10, 10, false, parent);
