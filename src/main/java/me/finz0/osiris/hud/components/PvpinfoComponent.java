@@ -124,14 +124,14 @@ public class PvpinfoComponent extends Panel {
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("Ping")){
-                drawText(" ", (int)x, (int)startY + 20, on.getRGB());
+                drawText(" ", (int)x, (int)startY + 30, on.getRGB());
             } else{
-                drawText(" ", (int)x, (int)startY + 20, off.getRGB());
+                drawText(" ", (int)x, (int)startY + 30, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("Totems")){
-                drawText(totems, (int)x, (int)startY + 30, on.getRGB());
+                drawText(totems, (int)x, (int)startY + 20, on.getRGB());
             } else{
-                drawText(totems, (int)x, (int)startY + 30, off.getRGB());
+                drawText(totems, (int)x, (int)startY + 20, off.getRGB());
             }
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
