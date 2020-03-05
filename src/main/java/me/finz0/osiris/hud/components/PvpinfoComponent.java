@@ -29,11 +29,12 @@ public class PvpinfoComponent extends Panel {
     boolean font;
     Color off;
     Color on;
+    int totems;
 
 
     public void drawHud(){
         doStuff();
-        draw();
+        draw((int)y + (int)height);
     }
     
     private int getPing(){
@@ -74,16 +75,11 @@ public class PvpinfoComponent extends Panel {
             } else{
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("Ping")){
-                drawText(getPing(), (int)x, (int)startY + 30, on.getRGB());
-            } else{
-                drawText(getPing(), (int)x, (int)startY + 30, off.getRGB());
-            }
-            if(ModuleManager.isModuleEnabled("Totems")){
-                drawText(totems, (int)x, (int)startY + 20, on.getRGB());
-            } else{
-                drawText(totems, (int)x, (int)startY + 20, off.getRGB());
-            }
+            
+            drawText(getPing() + "", (int)x, (int)startY + 30, off.getRGB());
+            
+            drawText(totems + "", (int)x, (int)startY + 20, on.getRGB());
+            
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
             } else{
@@ -98,8 +94,6 @@ public class PvpinfoComponent extends Panel {
         on = new Color(mod.onR.getValInt(), mod.onG.getValInt(), mod.onB.getValInt());
         if(mod.offRainbow.getValBoolean()) off = Rainbow.getColor();
         if(mod.onRainbow.getValBoolean()) on = Rainbow.getColor();
-        
-        int totems;
 
         totems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
 
@@ -112,7 +106,7 @@ public class PvpinfoComponent extends Panel {
         else mc.fontRenderer.drawStringWithShadow(s, x, y, c);
     }
 
-    private void draw(){
+    private void draw(int startY){
          if(ModuleManager.isModuleEnabled("AutoCrystal")){
                 drawText("HTR", (int)x, (int)startY, on.getRGB());
             } else{
@@ -123,16 +117,11 @@ public class PvpinfoComponent extends Panel {
             } else{
                 drawText("LBY", (int)x, (int)startY + 50, off.getRGB());
             }
-            if(ModuleManager.isModuleEnabled("Ping")){
-                drawText(" ", (int)x, (int)startY + 30, on.getRGB());
-            } else{
-                drawText(" ", (int)x, (int)startY + 30, off.getRGB());
-            }
-            if(ModuleManager.isModuleEnabled("Totems")){
-                drawText(totems, (int)x, (int)startY + 20, on.getRGB());
-            } else{
-                drawText(totems, (int)x, (int)startY + 20, off.getRGB());
-            }
+        
+            drawText(getPing() + "", (int)x, (int)startY + 30, off.getRGB());
+        
+            drawText(totems + "", (int)x, (int)startY + 20, on.getRGB());
+        
             if(ModuleManager.isModuleEnabled("AutoTrap")){
                 drawText("PLR", (int)x, (int)startY + 10, on.getRGB());
             } else{
