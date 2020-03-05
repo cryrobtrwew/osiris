@@ -120,6 +120,7 @@ public class ModuleManager {
         addMod(new NotificationsHud());
         addMod(new Direction());
         addMod(new ArmorHUD());
+        addMod(new CurrentHole());
     }
 
     public static void addMod(Module m){

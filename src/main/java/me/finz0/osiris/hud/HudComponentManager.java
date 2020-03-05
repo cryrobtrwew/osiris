@@ -27,6 +27,7 @@ public class HudComponentManager {
         addComponent(new InventoryComponent(ix, iy + 280, parent));
         addComponent(new DirectionComponent(ix, iy + 300, parent));
         addComponent(new ArmorComponent(ix + 50, iy, parent));
+        addComponent(new HoleComponent(ix + 50, iy + 20, parent));
     }
 
     public static List<Panel> hudComponents;

@@ -74,7 +74,7 @@ public class TotemsComponent extends Panel {
             Gui.drawRect((int) x, (int) startY, (int) x + (int) width, (int) startY + (int) height, c.getRGB());
             if(mod.mode.getValString().equalsIgnoreCase("Item")){
                 ItemStack is = new ItemStack(Items.TOTEM_OF_UNDYING, totems);
-                if(totems == 0) is = new ItemStack(Items.END_CRYSTAL);
+                if(totems == 0) is = new ItemStack(Items.TOTEM_OF_UNDYING);
                 RenderHelper.enableGUIStandardItemLighting();
                 mc.getRenderItem().renderItemAndEffectIntoGUI(is, (int)x, (int)startY);
                 RenderHelper.disableStandardItemLighting();
