@@ -1,5 +1,7 @@
 ### Edit by Bella:
 
+To clarify for whoever in the future is looking at this: this is a fork of my fork, [S-B99/kamiblue](https://github.com/S-B99/kamiblue) (https://blue.bella.wtf if repo link changes)
+
 Finz0 got mad after TigerMouthBear (relevant person who continued Ares client and helped with Backdoored client) created this issue: https://github.com/FINZ0/Osiris/issues/55
 
 So now the original repo is private.
