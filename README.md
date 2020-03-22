@@ -6,5 +6,9 @@ So now the original repo is private.
 
 It is perfectly legal to release this code as it is licensed under LGPL, as described and fixed in this pull request which was merged: https://github.com/FINZ0/Osiris/pull/48
 
+Osiris discord acknowledging that it has been privated: 
+
+![](https://cdn.discordapp.com/attachments/574340210029101066/691419737355190312/Screenshot_20200322-185459.png)
+
 # Osiris
 Join [the discord](https://discord.gg/YeMpphF) for latest releases until I set up the github properly
