@@ -4,7 +4,7 @@ Finz0 got mad after TigerMouthBear (relevant person who continued Ares client an
 
 So now the original repo is private.
 
-It is perfectly legal to release this code as it is licensed under LGPL, as described and fixed in this pull request which was merged: https://github.com/FINZ0/Osiris/pull/48
+It is perfectly legal to release this code as it is licensed under LGPL, as described and fixed in this pull request which was merged: https://github.com/FINZ0/Osiris/pull/48 (https://web.archive.org/web/20200229132930/https://github.com/FINZ0/Osiris/pull/48)
 
 Osiris discord acknowledging that it has been privated: 
 
