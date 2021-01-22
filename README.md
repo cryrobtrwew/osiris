@@ -1,3 +1,8 @@
+### Edit by CryroByte
+
+I am still going to keep this ripo because it is history 
+
+
 ### Edit by Bella:
 
 To clarify for whoever in the future is looking at this: this is a fork of my fork, [S-B99/kamiblue](https://github.com/S-B99/kamiblue) (https://blue.bella.wtf if repo link changes)
