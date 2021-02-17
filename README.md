@@ -1,6 +1,6 @@
 ### Edit by CryroByte
 
-I am still going to keep this ripo because it is history 
+I am still going to keep this repo because it is history 
 
 
 ### Edit by Bella:
